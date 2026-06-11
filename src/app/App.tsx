@@ -28,10 +28,17 @@ import BookingSchedulingPage from './pages/BookingSchedulingPage';
 import OrderManagementPage from './pages/OrderManagementPage';
 import CustomerSupportPage from './pages/CustomerSupportPage';
 import LeadCapturePage from './pages/LeadCapturePage';
-import RestaurantsPage from './pages/RestaurantsPage';
-import SalonsPage from './pages/SalonsPage';
+import RealEstatePage from './pages/RealEstatePage';
+import EducationPage from './pages/EducationPage';
+import AutomotivePage from './pages/AutomotivePage';
+import LegalPage from './pages/LegalPage';
+import FinancialPage from './pages/FinancialPage';
+import HomeServicesPage from './pages/HomeServicesPage';
 import HealthcarePage from './pages/HealthcarePage';
-import EcommercePage from './pages/EcommercePage';
+import FitnessPage from './pages/FitnessPage';
+import TravelPage from './pages/TravelPage';
+import EventManagementPage from './pages/EventManagementPage';
+import LogisticsPage from './pages/LogisticsPage';
 import BlogsPage from './pages/BlogsPage';
 import BlogArticlePage from './pages/BlogArticlePage';
 import CaseStudiesPage from './pages/CaseStudiesPage';
@@ -71,10 +78,17 @@ export default function App() {
         <Route path="/solutions/order" element={<OrderManagementPage />} />
         <Route path="/solutions/support" element={<CustomerSupportPage />} />
         <Route path="/solutions/leads" element={<LeadCapturePage />} />
-        <Route path="/solutions/restaurants" element={<RestaurantsPage />} />
-        <Route path="/solutions/salons" element={<SalonsPage />} />
+        <Route path="/solutions/real-estate" element={<RealEstatePage />} />
+        <Route path="/solutions/education" element={<EducationPage />} />
+        <Route path="/solutions/automotive" element={<AutomotivePage />} />
+        <Route path="/solutions/legal" element={<LegalPage />} />
+        <Route path="/solutions/financial" element={<FinancialPage />} />
+        <Route path="/solutions/home-services" element={<HomeServicesPage />} />
         <Route path="/solutions/healthcare" element={<HealthcarePage />} />
-        <Route path="/solutions/ecommerce" element={<EcommercePage />} />
+        <Route path="/solutions/fitness" element={<FitnessPage />} />
+        <Route path="/solutions/travel" element={<TravelPage />} />
+        <Route path="/solutions/events" element={<EventManagementPage />} />
+        <Route path="/solutions/logistics" element={<LogisticsPage />} />
         <Route path="/product/flow-builder" element={<FlowBuilderPage />} />
         <Route path="/product/agents" element={<AgentsPage />} />
         <Route path="/product/channels" element={<ChannelsMenuPage />} />

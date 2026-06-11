@@ -21,9 +21,19 @@ import {
   BookOpen,
   Code,
   GraduationCap,
+  Building2,
   FileText,
   Zap,
   Users,
+  Car,
+  Scale,
+  TrendingUp,
+  Wrench,
+  HeartPulse,
+  Dumbbell,
+  Plane,
+  CalendarDays,
+  Truck,
   BarChart3,
   CheckCircle,
   Inbox,
@@ -392,10 +402,17 @@ export default function NavigationWithDropdowns() {
                     { icon: ShoppingCart, label: "Order Management", href: "/solutions/order" },
                     { icon: Users, label: "Customer Support", href: "/solutions/support" },
                     { icon: Zap, label: "Lead Capture", href: "/solutions/leads" },
-                    { icon: CheckCircle, label: "Restaurants", href: "/solutions/restaurants" },
-                    { icon: Megaphone, label: "Salons & Spas", href: "/solutions/salons" },
-                    { icon: Phone, label: "Healthcare", href: "/solutions/healthcare" },
-                    { icon: ShoppingCart, label: "E-Commerce", href: "/solutions/ecommerce" },
+                    { icon: Building2, label: "Real Estate", href: "/solutions/real-estate" },
+                    { icon: GraduationCap, label: "Education & Coaching", href: "/solutions/education" },
+                    { icon: Car, label: "Automotive", href: "/solutions/automotive" },
+                    { icon: Scale, label: "Legal Services", href: "/solutions/legal" },
+                    { icon: TrendingUp, label: "Financial Services", href: "/solutions/financial" },
+                    { icon: Wrench, label: "Home Services", href: "/solutions/home-services" },
+                    { icon: HeartPulse, label: "Healthcare & Clinics", href: "/solutions/healthcare" },
+                    { icon: Dumbbell, label: "Fitness & Gyms", href: "/solutions/fitness" },
+                    { icon: Plane, label: "Travel & Tourism", href: "/solutions/travel" },
+                    { icon: CalendarDays, label: "Event Management", href: "/solutions/events" },
+                    { icon: Truck, label: "Logistics & Delivery", href: "/solutions/logistics" },
                   ]}
                   onLinkClick={() => setMobileMenuOpen(false)}
                 />
@@ -685,6 +702,40 @@ function ProductDropdown({
                         isActive
                           ? "text-[#2F80ED] font-semibold"
                           : "text-[#1F2937] group-hover:text-[#2F80ED]"
+                      }`}
+                      style={{ fontFamily: "Inter, sans-serif" }}
+                    >
+                      {link.label}
+                    </span>
+                  </Link>
+                );
+              })}
+              {/* First half of industry links */}
+              {industryLinks.slice(0, 6).map((link, idx) => {
+                const isActive = location.pathname === link.href;
+                return (
+                  <Link
+                    key={"industry-" + idx}
+                    to={link.href}
+                    className={`flex items-center gap-3 p-2.5 rounded-lg transition-all group ${
+                      isActive ? "bg-[#F6F0FF]" : "hover:bg-[#F6F0FF]"
+                    }`}
+                    role="menuitem"
+                    tabIndex={0}
+                  >
+                    <link.icon
+                      className={`w-[18px] h-[18px] transition-colors flex-shrink-0 ${
+                        isActive
+                          ? "text-[#2F80ED]"
+                          : "text-gray-400 group-hover:text-[#2F80ED]"
+                      }`}
+                      strokeWidth={1.5}
+                    />
+                    <span
+                      className={`text-[14px] transition-colors ${
+                        isActive
+                          ? "text-[#2F80ED] font-semibold"
+                          : "text-[#1A1A1A] group-hover:text-[#2F80ED]"
                       }`}
                       style={{ fontFamily: "Inter, sans-serif" }}
                     >
@@ -1025,27 +1076,18 @@ function SolutionsDropdown({
     },
   ];
 
-  const secondaryLinks = [
-    {
-      icon: CheckCircle,
-      label: "Restaurants",
-      href: "/solutions/restaurants",
-    },
-    {
-      icon: Megaphone,
-      label: "Salons & Spas",
-      href: "/solutions/salons",
-    },
-    {
-      icon: Phone,
-      label: "Healthcare",
-      href: "/solutions/healthcare",
-    },
-    {
-      icon: ShoppingCart,
-      label: "E-Commerce",
-      href: "/solutions/ecommerce",
-    },
+  const industryLinks = [
+    { icon: Building2, label: "Real Estate", href: "/solutions/real-estate" },
+    { icon: GraduationCap, label: "Education & Coaching", href: "/solutions/education" },
+    { icon: Car, label: "Automotive", href: "/solutions/automotive" },
+    { icon: Scale, label: "Legal Services", href: "/solutions/legal" },
+    { icon: TrendingUp, label: "Financial Services", href: "/solutions/financial" },
+    { icon: Wrench, label: "Home Services", href: "/solutions/home-services" },
+    { icon: HeartPulse, label: "Healthcare & Clinics", href: "/solutions/healthcare" },
+    { icon: Dumbbell, label: "Fitness & Gyms", href: "/solutions/fitness" },
+    { icon: Plane, label: "Travel & Tourism", href: "/solutions/travel" },
+    { icon: CalendarDays, label: "Event Management", href: "/solutions/events" },
+    { icon: Truck, label: "Logistics & Delivery", href: "/solutions/logistics" },
   ];
 
   return (
@@ -1113,9 +1155,9 @@ function SolutionsDropdown({
               })}
             </div>
 
-            {/* Second Column */}
+            {/* Second Column: split industryLinks into two columns (first 6, last 5) */}
             <div className="space-y-1">
-              {secondaryLinks.map((link, index) => {
+              {industryLinks.slice(6).map((link, index) => {
                 const isActive = location.pathname === link.href;
                 return (
                   <Link
@@ -1258,6 +1300,14 @@ function TemplatesDropdown({
     },
   ];
 
+  const industryTemplateLinks = [
+    { icon: Building2, label: 'Real Estate Templates', href: '/solutions/real-estate' },
+    { icon: GraduationCap, label: 'Education Templates', href: '/solutions/education' },
+    { icon: Car, label: 'Automotive Templates', href: '/solutions/automotive' },
+    { icon: Scale, label: 'Legal Templates', href: '/solutions/legal' },
+    { icon: Truck, label: 'Logistics Templates', href: '/solutions/logistics' },
+  ];
+
   return (
     <motion.div
       initial={{ opacity: 0, y: 6 }}
@@ -1330,6 +1380,13 @@ function TemplatesDropdown({
                   </div>
                 );
               })}
+              {/* Industry template shortcuts */}
+              {industryTemplateLinks.map((item, idx) => (
+                <Link key={idx} to={item.href} className="flex items-center gap-3 p-2.5 rounded-lg transition-all group hover:bg-[#F6F0FF]">
+                  <item.icon className="w-[18px] h-[18px] text-gray-400 flex-shrink-0" strokeWidth={1.5} />
+                  <span className="text-[14px] text-[#1A1A1A]" style={{ fontFamily: 'Inter, sans-serif' }}>{item.label}</span>
+                </Link>
+              ))}
               
               {/* Explore All Templates Button */}
               <div className="pt-2 mt-2 border-t border-gray-200">

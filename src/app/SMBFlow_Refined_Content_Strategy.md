@@ -152,27 +152,51 @@ Built to automate, assist, and scale your business.
 ### Headline
 **One Platform. Tailored for Every Small Business.**
 
-### Use Cases (5 Industry Cards)
+### Use Cases (11 Industry Blocks)
 
-1. **Restaurants & Cafés**
-   - Order automation, reservations, menu Q&A, feedback flows.
-   - **Features**: Order automation | Table reservations | Menu Q&A
+1. **Real Estate**
+   - Lead capture, viewing scheduling, follow-up campaigns.
+   - **Use Cases**: Lead Qualification Agent | Property Viewing Scheduler | Follow-Up Campaign Agent
 
-2. **Clinics & Healthcare**
-   - Patient scheduling, triage, reminders, follow-ups.
-   - **Features**: Patient scheduling | Triage | Reminders
+2. **Education & Coaching**
+   - Enrollment, fee reminders, and class scheduling automation.
+   - **Use Cases**: Enrollment Inquiry Agent | Class Scheduling Agent | Fee Reminder Campaign
 
-3. **Salons & Beauty Studios**
-   - Appointment booking, service suggestions, rebooking campaigns.
-   - **Features**: Appointment booking | Service suggestions | Rebooking
+3. **Automotive (Car Dealerships & Service Centers)**
+   - Service appointment booking, parts inquiries, and post-service follow-ups.
+   - **Use Cases**: Service Appointment Agent | Parts & Pricing Inquiry Agent | Post-Service Follow-Up Campaign
 
-4. **E-commerce & D2C**
-   - Order tracking, returns, COD verification, product inquiries.
-   - **Features**: Order tracking | Returns | COD verification
+4. **Legal Services**
+   - Client intake, consultation scheduling, and document collection automation.
+   - **Use Cases**: Client Intake Agent | Consultation Booking Agent | Document Collection Agent
 
-5. **Local Services**
-   - Lead capture, appointment workflows, voice scheduling.
-   - **Features**: Lead capture | Appointments | Voice scheduling
+5. **Financial Services & Accounting**
+   - Client onboarding, FAQ handling, and appointment scheduling.
+   - **Use Cases**: Client FAQ Agent | Appointment Scheduling Agent | Onboarding Document Agent
+
+6. **Home Services (Plumbing, Cleaning, HVAC, Electricians)**
+   - Capture service requests, send quotes, and dispatch technicians automatically.
+   - **Use Cases**: Job Booking Agent | Quote Request Agent | Technician Dispatch Notification
+
+7. **Healthcare & Clinics**
+   - Patient scheduling, reminders, and follow-ups with 24/7 access.
+   - **Use Cases**: Patient Appointment Agent | Reminder & Follow-Up Agent | Patient FAQ Agent
+
+8. **Fitness & Gyms**
+   - Class bookings, membership inquiries, and re-engagement campaigns.
+   - **Use Cases**: Class Booking Agent | Membership Inquiry Agent | Re-Engagement Campaign Agent
+
+9. **Travel & Tourism**
+   - Automate bookings, inquiries, and itinerary support across channels.
+   - **Use Cases**: Travel Inquiry Agent | Booking & Confirmation Agent | Post-Booking Support Agent
+
+10. **Event Management**
+    - Registrations, reminders, and guest communication automation.
+    - **Use Cases**: Event Registration Agent | Event Reminder Campaign | Post-Event Follow-Up Agent
+
+11. **Logistics & Delivery**
+    - Shipment tracking, dispatch coordination, and customer updates.
+    - **Use Cases**: Shipment Tracking Agent | Dispatch Coordination Agent | Customer Update Campaign
 
 ---
 

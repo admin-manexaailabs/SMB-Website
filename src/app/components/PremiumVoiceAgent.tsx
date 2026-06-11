@@ -2,7 +2,7 @@ import { motion, useMotionValue, useTransform } from "motion/react";
 import { Phone } from "lucide-react";
 import { Button } from "./ui/button";
 import { useState, useEffect } from "react";
-import { toast } from "sonner@2.0.3";
+import { toast } from "sonner";
 
 // AI Voice Agent Section with Premium Glass Design
 export default function PremiumVoiceAgent() {

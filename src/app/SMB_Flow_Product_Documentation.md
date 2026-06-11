@@ -24,7 +24,7 @@ Small and medium businesses face critical challenges in customer engagement and 
 ## 3. Target Users / Personas
 
 ### Primary Users:
-- **Small Business Owners** (restaurants, salons, healthcare clinics, local retail)
+- **Small Business Owners** (real estate agency, coaching center, law firm, auto dealership, fitness gym, logistics company, travel agency)
 - **Operations Managers** at SMBs managing customer inquiries and bookings
 - **Customer Support Teams** handling multi-channel conversations
 - **Marketing Teams** running campaigns and lead capture
@@ -169,37 +169,32 @@ Small and medium businesses face critical challenges in customer engagement and 
 
 ## 7. Primary Use Case (Real-World Scenario)
 
-### **Scenario: Local Restaurant Chain Managing Customer Inquiries**
+### **Scenario: Real Estate Agency Optimizing Lead Capture & Viewings**
 
 **Business Context:**
-- Restaurant with 3 locations, 15 employees
-- Receives 500+ customer inquiries daily via phone, WhatsApp, Instagram DMs
-- Staff overwhelmed with repetitive questions: "Are you open?", "Do you have parking?", "Can I book a table?"
-- Missing reservations after-hours
-- Spending 2 hours/day manually sending order status updates
+- Real estate agency with 3 agents, 200+ monthly inquiries via WhatsApp, Instagram, phone
+- Leads arrive after hours and during work hours; manual qualification is slow
+- Agents lose momentum when follow-ups are delayed
 
 **SMB Flow Implementation:**
 
 1. **Builds 3 AI Agents in 1 hour:**
-   - **Booking Agent**: Handles table reservations via WhatsApp and phone
-   - **Order Status Agent**: Sends automated order tracking updates via SMS
-   - **FAQ Agent**: Answers common questions on Instagram DM and web chat
+   - **Lead Qualification Agent**: Captures buyer/seller inquiries 24/7 via WhatsApp and web chat; collects budget, location, timeline
+   - **Property Viewing Scheduler**: Checks agent availability, books viewings, handles reschedules and cancellations automatically
+   - **Follow-Up Campaign Agent**: Runs automated WhatsApp/SMS nurture sequences for cold leads
 
-2. **Deploys Across 4 Channels:**
-   - WhatsApp Business for direct messaging
-   - Voice AI for phone calls
-   - Instagram DM for social media inquiries
-   - Web chat on restaurant website
+2. **Deploys Across Channels:**
+   - WhatsApp Business for immediate lead capture
+   - Web chat widget on property listings
+   - Email and SMS for confirmations and drip campaigns
 
 3. **Results After 30 Days:**
-   - **80% of inquiries handled automatically** without staff intervention
-   - **+40% reservations** from after-hours bookings
-   - **-60% time spent on phone** by staff
-   - **+25% customer satisfaction** from instant responses
-   - **$2,000/month saved** in labor costs
-   - Staff refocused on in-restaurant customer experience
+   - **90% inquiries captured 24/7** without manual effort
+   - **+40% viewing bookings** from faster response and automated scheduling
+   - **70% less manual follow-up** time for agents
+   - **$1,500/month saved** in admin time
 
-**Key Outcome:** The restaurant scaled customer engagement without hiring additional staff, improved customer experience, and increased revenue—all managed through one platform.
+**Key Outcome:** The agency captures and qualifies more leads, books more viewings, and frees agents to close deals rather than coordinate schedules.
 
 ---
 
@@ -214,7 +209,7 @@ Small and medium businesses face critical challenges in customer engagement and 
 - ✅ Responsive design optimized for desktop and mobile
 - ✅ Premium SaaS styling with brand colors (Blue #2F80ED, Purple #9B51E0, Red #EB5757, Yellow #F2C94C, Orange #F2994A)
 - ✅ Navigation with dropdowns for Product, Agents, Solutions, Templates
-- ✅ Industry-specific pages (Restaurants, Salons, Healthcare, E-commerce)
+- ✅ Industry-specific pages (Real Estate, Education, Automotive, Legal, Financial, Home Services, Healthcare, Fitness, Travel, Events, Logistics)
 - ✅ Agent-specific pages (Chat, Voice, Email, WhatsApp, Automation, Support)
 - ✅ CTA buttons linking to external app (app.smbflow.ai)
 - ✅ Cinematic voice agent section with animations
@@ -303,13 +298,19 @@ SMB Flow provides a **visual no-code builder** where businesses can create AI ag
 
 ## Who is it For?
 **Small and medium businesses** (1-100 employees) such as:
-- Restaurants and cafes
-- Salons and spas
+- Real estate agencies
+- Education & coaching centers
+- Automotive dealerships & services
+- Legal services and law firms
+- Financial services (advisors, lenders)
+- Home services & repair companies
 - Healthcare clinics
-- Local retail stores
-- E-commerce SMBs
+- Fitness gyms & studios
+- Travel agencies & tour operators
+- Event management companies
+- Logistics & delivery providers
 
-These businesses need to scale customer engagement without proportionally increasing headcount.
+These businesses need to scale lead capture, bookings, support, and follow-ups without proportionally increasing headcount.
 
 ---
 
@@ -335,13 +336,13 @@ These businesses need to scale customer engagement without proportionally increa
 ---
 
 ## Real-World Example
-A 3-location restaurant chain receives 500+ daily inquiries via phone, WhatsApp, and Instagram. They deploy 3 AI agents (booking, order tracking, FAQ) across 4 channels using SMB Flow. 
+A mid-sized real estate agency receives 200+ monthly inquiries across WhatsApp, web, and phone. They deploy 3 AI agents (lead qualification, viewing scheduler, follow-up campaign) across channels using SMB Flow.
 
 **Results in 30 days:**
-- 80% of inquiries handled automatically
-- +40% reservations from after-hours bookings
-- -60% staff time on phones
-- $2,000/month saved in labor costs
+- 90% inquiries captured 24/7
+- +40% viewing bookings from faster response and automated scheduling
+- 70% less manual follow-up time for agents
+- $1,500/month saved in admin time
 
 ---
 

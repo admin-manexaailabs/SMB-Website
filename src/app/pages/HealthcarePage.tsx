@@ -1,137 +1,163 @@
-import { motion, AnimatePresence } from 'motion/react';
-import { Link } from 'react-router';
-import { 
-  Heart,
-  Phone,
-  MessageCircle,
-  Globe,
-  Mail,
-  MessageSquare,
-  Calendar,
-  Users,
-  Clock,
-  Bot,
-  Inbox,
-  BarChart3,
-  Workflow,
-  ArrowRight,
-  CheckCircle,
-  Bell,
-  Shield,
-  Lock,
-  Activity,
-  FileText,
-  UserCheck,
-  ClipboardCheck,
-  Stethoscope,
-  Building2,
-  Briefcase,
-  XCircle
-} from 'lucide-react';
+import { motion } from 'react';
+import { HeartPulse, MessageCircle, Phone, Mail, Globe, MessageSquare, CheckCircle, TrendingUp, Clock, Zap, Target, BarChart3, ArrowRight, AlertCircle, Calendar, Stethoscope } from 'lucide-react';
 import { Button } from '../components/ui/button';
 import NavigationWithDropdowns from '../components/NavigationWithDropdowns';
 import Footer from '../components/Footer';
-import { useState, useEffect } from 'react';
 
 export default function HealthcarePage() {
-  const [journeyStep, setJourneyStep] = useState(0);
-  const [activeProblem, setActiveProblem] = useState(0);
-  const [reminderStep, setReminderStep] = useState(0);
-  const [activeChannel, setActiveChannel] = useState(0);
-
-  // Patient Journey Steps
-  const journeySteps = [
-    { icon: MessageCircle, label: 'Patient enquiry', color: '#2F80ED' },
-    { icon: Calendar, label: 'Scheduling', color: '#2F80ED' },
-    { icon: Bell, label: 'Reminder', color: '#2F80ED' },
-    { icon: Activity, label: 'Visit', color: '#2F80ED' },
-    { icon: CheckCircle, label: 'Follow-up', color: '#2F80ED' }
-  ];
-
-  // Healthcare Challenges
-  const problems = [
-    {
-      icon: Phone,
-      title: 'High call volume',
-      problem: 'Staff overwhelmed',
-      solution: 'AI handles patient queries',
-      color: '#2F80ED'
-    },
-    {
-      icon: Calendar,
-      title: 'Missed appointments',
-      problem: 'Time wasted',
-      solution: 'Automated reminders',
-      color: '#2F80ED'
-    },
-    {
-      icon: FileText,
-      title: 'Repeated questions',
-      problem: 'Manual responses',
-      solution: 'Instant, accurate answers',
-      color: '#2F80ED'
-    },
-    {
-      icon: Users,
-      title: 'Staff overload',
-      problem: 'Admin burden',
-      solution: 'Reduced administrative work',
-      color: '#2F80ED'
-    }
-  ];
-
-  // Reminder timeline
-  const reminderTimeline = [
-    { label: 'Appointment confirmed', icon: CheckCircle, time: 'Instant' },
-    { label: 'Reminder sent', icon: Bell, time: '24h before' },
-    { label: 'Visit completed', icon: Activity, time: 'On visit' },
-    { label: 'Follow-up message', icon: MessageCircle, time: '3 days after' }
-  ];
-
-  // Channels
-  const channels = [
-    { icon: Phone, name: 'Voice', color: '#2F80ED', primary: true },
-    { icon: MessageCircle, name: 'WhatsApp', color: '#25D366' },
-    { icon: Globe, name: 'Webchat', color: '#2F80ED' },
-    { icon: MessageSquare, name: 'SMS', color: '#6B7280' },
-    { icon: Mail, name: 'Email', color: '#6B7280' }
-  ];
-
-  // Animations - very slow and purposeful
-  useEffect(() => {
-    const journeyInterval = setInterval(() => {
-      setJourneyStep((prev) => (prev + 1) % journeySteps.length);
-    }, 3500); // very slow
-    return () => clearInterval(journeyInterval);
-  }, []);
-
-  useEffect(() => {
-    const problemInterval = setInterval(() => {
-      setActiveProblem((prev) => (prev + 1) % problems.length);
-    }, 4500); // even slower than salons
-    return () => clearInterval(problemInterval);
-  }, []);
-
-  useEffect(() => {
-    const reminderInterval = setInterval(() => {
-      setReminderStep((prev) => (prev + 1) % reminderTimeline.length);
-    }, 3500);
-    return () => clearInterval(reminderInterval);
-  }, []);
-
-  useEffect(() => {
-    const channelInterval = setInterval(() => {
-      setActiveChannel((prev) => (prev + 1) % channels.length);
-    }, 3000);
-    return () => clearInterval(channelInterval);
-  }, []);
 
   return (
     <div className="bg-white text-gray-900" style={{ fontFamily: 'Inter, sans-serif' }}>
-      {/* Navigation */}
       <NavigationWithDropdowns />
 
-      {/* 1️⃣ Hero: Trust, Care, Automation */}
+      <section className="pt-32 pb-24 relative overflow-hidden">
+        <div className="absolute inset-0 opacity-10">
+          <div className="absolute inset-0 bg-gradient-to-br from-[#EB5757]/10 to-transparent" />
+        </div>
+        <div className="w-full px-8 lg:px-16 xl:px-24 relative z-10">
+          <div className="max-w-4xl mx-auto text-center">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
+            >
+              <h1 className="text-5xl lg:text-6xl mb-6 leading-[1.1] tracking-tight" style={{ fontFamily: 'DM Sans, sans-serif' }}>
+                Automate Patient Scheduling, Reminders & Follow-Ups
+              </h1>
+              <p className="text-xl text-gray-600 mb-8 max-w-3xl mx-auto">
+                Give patients 24/7 access to booking and information — without burdening your front desk.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="https://app.smbflow.ai/business/auth/signin" target="_blank" rel="noopener noreferrer">
+                  <Button className="bg-gradient-to-r from-[#EB5757] to-[#D63031] hover:opacity-90 text-white text-lg px-8 py-3 rounded-full w-full sm:w-auto">
+                    Start Free <ArrowRight className="w-5 h-5 ml-2" />
+                  </Button>
+                </a>
+                <Button variant="outline" className="border-gray-300 text-gray-900 text-lg px-8 py-3 rounded-full w-full sm:w-auto">
+                  Watch Demo
+                </Button>
+              </div>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      <section className="py-24 bg-gray-50">
+        <div className="w-full px-8 lg:px-16 xl:px-24">
+          <div className="max-w-4xl mx-auto">
+            <h2 className="text-4xl mb-12 text-center" style={{ fontFamily: 'DM Sans, sans-serif' }}>
+              The Healthcare Challenge
+            </h2>
+            <div className="grid md:grid-cols-3 gap-8">
+              {[
+                { icon: AlertCircle, title: 'Staff overwhelmed with scheduling calls', desc: 'Front desk drowned in appointment requests, reducing patient care focus' },
+                { icon: Clock, title: 'High no-show rates', desc: 'Manual reminders are unreliable, leading to wasted appointment slots' },
+                { icon: Zap, title: 'Manual reminder processes', desc: 'Staff spend hours on repetitive reminder calls and SMS messages' }
+              ].map((item, i) => (
+                <motion.div key={i} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.1 }} className="bg-white border-2 border-red-200 rounded-2xl p-8">
+                  <item.icon className="w-8 h-8 text-red-600 mb-4" />
+                  <h3 className="text-xl font-semibold mb-3">{item.title}</h3>
+                  <p className="text-gray-600">{item.desc}</p>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="py-24 bg-white">
+        <div className="w-full px-8 lg:px-16 xl:px-24">
+          <div className="max-w-6xl mx-auto">
+            <h2 className="text-4xl mb-12 text-center" style={{ fontFamily: 'DM Sans, sans-serif' }}>
+              How Healthcare Providers Use SMB Flow
+            </h2>
+            <div className="grid md:grid-cols-3 gap-8">
+              {[
+                { title: 'Patient Appointment Agent', desc: 'Book, reschedule, and cancel appointments via WhatsApp, SMS, or web chat — 24/7.', tags: ['WhatsApp', 'SMS', 'Web Chat'] },
+                { title: 'Reminder & Follow-Up Agent', desc: 'Automated appointment reminders, post-visit follow-ups, and prescription renewal prompts.', tags: ['SMS', 'WhatsApp', 'Voice'] },
+                { title: 'Patient FAQ Agent', desc: 'Answer common questions about services, insurance, hours, and directions automatically.', tags: ['Web Chat', 'WhatsApp', 'Email'] }
+              ].map((useCase, i) => (
+                <motion.div key={i} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.1 }} className="bg-gradient-to-br from-red-50 to-red-100/50 border-2 border-red-200 rounded-2xl p-8">
+                  <h3 className="text-2xl font-semibold mb-4 text-gray-900">{useCase.title}</h3>
+                  <p className="text-gray-700 mb-6">{useCase.desc}</p>
+                  <div className="flex flex-wrap gap-2">
+                    {useCase.tags.map((tag) => (
+                      <span key={tag} className="px-3 py-1 bg-white text-red-700 rounded-full text-sm font-medium">{tag}</span>
+                    ))}
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="py-24 bg-gray-50">
+        <div className="w-full px-8 lg:px-16 xl:px-24">
+          <div className="max-w-4xl mx-auto">
+            <h2 className="text-4xl mb-12 text-center" style={{ fontFamily: 'DM Sans, sans-serif' }}>
+              Why Healthcare Providers Choose SMB Flow
+            </h2>
+            <div className="grid md:grid-cols-2 gap-8">
+              {[
+                { icon: HeartPulse, title: '24/7 Patient Booking', desc: 'Patients can book appointments anytime — reduce front desk load' },
+                { icon: Calendar, title: 'Automated Reminders', desc: 'Reduce no-shows with reliable appointment reminders' },
+                { icon: Stethoscope, title: 'Post-Visit Follow-Up', desc: 'Automated follow-ups improve patient satisfaction and outcomes' },
+                { icon: MessageCircle, title: 'Multi-Channel Support', desc: 'Reach patients on their preferred platforms' }
+              ].map((feature, i) => (
+                <motion.div key={i} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.1 }} className="bg-white border-2 border-gray-200 rounded-2xl p-8 hover:border-red-300 hover:shadow-lg transition-all">
+                  <feature.icon className="w-8 h-8 text-red-600 mb-4" />
+                  <h3 className="text-xl font-semibold mb-3">{feature.title}</h3>
+                  <p className="text-gray-600">{feature.desc}</p>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="py-24 bg-white">
+        <div className="w-full px-8 lg:px-16 xl:px-24">
+          <div className="max-w-4xl mx-auto">
+            <h2 className="text-4xl mb-12 text-center" style={{ fontFamily: 'DM Sans, sans-serif' }}>
+              Real Results for Healthcare Providers
+            </h2>
+            <div className="grid md:grid-cols-4 gap-6">
+              {[
+                { stat: '70%', desc: 'appointments booked without staff' },
+                { stat: '60%', desc: 'fewer no-shows' },
+                { stat: '24/7', desc: 'patient access' },
+                { stat: '50%', desc: 'less admin load' }
+              ].map((outcome, i) => (
+                <motion.div key={i} initial={{ opacity: 0, scale: 0.9 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }} transition={{ delay: i * 0.1 }} className="bg-gradient-to-br from-red-50 to-red-100 rounded-2xl p-8 text-center border-2 border-red-200">
+                  <div className="text-4xl font-bold text-red-600 mb-2">{outcome.stat}</div>
+                  <p className="text-gray-700">{outcome.desc}</p>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="py-24 bg-gradient-to-r from-red-600 to-red-700">
+        <div className="w-full px-8 lg:px-16 xl:px-24">
+          <div className="max-w-4xl mx-auto text-center">
+            <h2 className="text-4xl text-white mb-6" style={{ fontFamily: 'DM Sans, sans-serif' }}>
+              Ready to Reduce Your Admin Load?
+            </h2>
+            <p className="text-xl text-white/90 mb-8">
+              Join healthcare providers automating 70% of their scheduling
+            </p>
+            <a href="https://app.smbflow.ai/business/auth/signin" target="_blank" rel="noopener noreferrer">
+              <Button className="bg-white text-red-600 hover:bg-gray-100 text-lg px-10 py-3 rounded-full">
+                Start Free <ArrowRight className="w-5 h-5 ml-2" />
+              </Button>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      
       <section className="pt-20 pb-24 overflow-hidden bg-gradient-to-b from-blue-50/30 to-white">
         <div className="w-full px-8 lg:px-16 xl:px-24">
           <div>
@@ -332,8 +358,6 @@ export default function HealthcarePage() {
           </div>
         </div>
       </section>
-
-      {/* 3️⃣ Appointment Scheduling That Respects Time */}
       <section className="py-24 bg-gray-50">
         <div className="w-full px-8 lg:px-16 xl:px-24">
           <div className="max-w-6xl mx-auto">

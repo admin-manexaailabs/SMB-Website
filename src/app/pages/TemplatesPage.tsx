@@ -28,6 +28,11 @@ import {
   Store,
   TrendingUp,
   FileText
+  ,
+  Truck,
+  Plane,
+  Wrench,
+  Bell
 } from 'lucide-react';
 import { Button } from '../components/ui/button';
 import NavigationWithDropdowns from '../components/NavigationWithDropdowns';
@@ -96,6 +101,31 @@ export default function TemplatesPage() {
         { name: 'Booking Agent', icon: Calendar },
         { name: 'Scheduling', icon: Clock },
         { name: 'Email Automation', icon: Mail }
+      ]
+    }
+    ,
+    {
+      group: 'Industry Templates',
+      color: '#2F80ED',
+      templates: [
+        { name: 'Real Estate Lead Qualifier', icon: Building2, href: '/solutions/real-estate' },
+        { name: 'Property Viewing Scheduler', icon: Calendar, href: '/solutions/real-estate' },
+        { name: 'Student Enrollment Agent', icon: GraduationCap, href: '/solutions/education' },
+        { name: 'Fee Reminder Campaign Agent', icon: Mail, href: '/solutions/education' },
+        { name: 'Service Appointment Agent', icon: Calendar, href: '/solutions/automotive' },
+        { name: 'Legal Client Intake Agent', icon: FileText, href: '/solutions/legal' },
+        { name: 'Financial Consultation Booking Agent', icon: CheckCircle, href: '/solutions/financial' },
+        { name: 'Home Job Booking Agent', icon: Wrench, href: '/solutions/home-services' },
+        { name: 'Patient Appointment Agent', icon: Calendar, href: '/solutions/healthcare' },
+        { name: 'Health Reminder Agent', icon: Bell, href: '/solutions/healthcare' },
+        { name: 'Class Booking Agent', icon: Calendar, href: '/solutions/fitness' },
+        { name: 'Member Re-Engagement Campaign', icon: Zap, href: '/solutions/fitness' },
+        { name: 'Travel Inquiry Agent', icon: Plane, href: '/solutions/travel' },
+        { name: 'Booking Confirmation Agent', icon: Send, href: '/solutions/travel' },
+        { name: 'Event Registration Agent', icon: Calendar, href: '/solutions/events' },
+        { name: 'Post-Event Follow-Up Agent', icon: Mail, href: '/solutions/events' },
+        { name: 'Shipment Tracking Agent', icon: Truck, href: '/solutions/logistics' },
+        { name: 'Dispatch Notification Agent', icon: Truck, href: '/solutions/logistics' }
       ]
     }
   ];

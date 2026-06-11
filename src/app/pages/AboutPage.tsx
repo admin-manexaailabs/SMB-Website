@@ -17,7 +17,7 @@ import {
 import { Button } from "../components/ui/button";
 import NavigationWithDropdowns from "../components/NavigationWithDropdowns";
 import Footer from "../components/Footer";
-import { toast } from "sonner@2.0.3";
+import { toast } from "sonner";
 
 // Unsplash images
 const heroFlowImg =

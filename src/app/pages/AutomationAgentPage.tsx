@@ -1,6 +1,6 @@
 import { motion, AnimatePresence } from 'motion/react';
 import { Link } from 'react-router';
-import { toast } from 'sonner@2.0.3';
+import { toast } from 'sonner';
 import { 
   Zap, 
   Calendar, 

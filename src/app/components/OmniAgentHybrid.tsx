@@ -1,6 +1,6 @@
 import { motion } from "motion/react";
 import { Link } from "react-router";
-import { toast } from "sonner@2.0.3";
+import { toast } from "sonner";
 import {
   ArrowRight,
   Play,
@@ -45,6 +45,12 @@ import {
   Palette,
   Award,
   ChevronLeft,
+  Building2,
+  GraduationCap,
+  Dumbbell,
+  Scale,
+  HeartPulse,
+  Truck,
 } from "lucide-react";
 import { Button } from "./ui/button";
 import { useState, useEffect } from "react";
@@ -60,7 +66,7 @@ import CinematicVoiceAgent from "./CinematicVoiceAgent";
 export default function OmniAgentHybrid() {
   return (
     <div
-      className="bg-white text-gray-900 overflow-hidden"
+      className="bg-white text-gray-900"
       style={{ fontFamily: "Inter, sans-serif" }}
     >
       {/* Navigation */}
@@ -1701,60 +1707,46 @@ function KPIMetrics() {
 function IndustryUseCases() {
   const useCases = [
     {
-      title: "Restaurants & Cafés",
-      description:
-        "Order automation, reservations, menu Q&A, feedback flows.",
-      gradient: "from-orange-600/80 to-red-600/80",
-      icon: Target,
-      features: [
-        "Order automation",
-        "Table reservations",
-        "Menu Q&A",
-      ],
+      title: "Real Estate",
+      description: "Lead capture, viewing scheduling, follow-up campaigns.",
+      gradient: "from-[#2F80ED]/80 to-[#2F80ED]/50",
+      icon: Building2,
+      features: ["Lead capture", "Viewing booking", "Follow-up"],
     },
     {
-      title: "Clinics & Healthcare",
-      description:
-        "Patient scheduling, triage, reminders, follow-ups.",
-      gradient: "from-green-600/80 to-emerald-600/80",
-      icon: Headphones,
-      features: ["Patient scheduling", "Triage", "Reminders"],
+      title: "Healthcare & Clinics",
+      description: "Appointment booking, reminders, patient FAQ automation.",
+      gradient: "from-[#EB5757]/80 to-[#EB5757]/50",
+      icon: HeartPulse,
+      features: ["Appointment booking", "Reminders", "Patient FAQ"],
     },
     {
-      title: "Salons & Beauty Studios",
-      description:
-        "Appointment booking, service suggestions, rebooking campaigns.",
-      gradient: "from-pink-600/80 to-purple-600/80",
-      icon: Palette,
-      features: [
-        "Appointment booking",
-        "Service suggestions",
-        "Rebooking",
-      ],
+      title: "Education & Coaching",
+      description: "Enrollment, fee reminders, class scheduling.",
+      gradient: "from-[#9B51E0]/80 to-[#9B51E0]/50",
+      icon: GraduationCap,
+      features: ["Enrollment", "Scheduling", "Fee reminders"],
     },
     {
-      title: "E-commerce & D2C",
-      description:
-        "Order tracking, returns, COD verification, product inquiries.",
-      gradient: "from-blue-600/80 to-cyan-600/80",
-      icon: Box,
-      features: [
-        "Order tracking",
-        "Returns",
-        "COD verification",
-      ],
+      title: "Fitness & Gyms",
+      description: "Class booking, membership inquiries, re-engagement.",
+      gradient: "from-[#00B5D8]/80 to-[#00B5D8]/50",
+      icon: Dumbbell,
+      features: ["Class booking", "Membership", "Re-engagement"],
     },
     {
-      title: "Local Services",
-      description:
-        "Lead capture, appointment workflows, voice scheduling.",
-      gradient: "from-indigo-600/80 to-violet-600/80",
-      icon: Briefcase,
-      features: [
-        "Lead capture",
-        "Appointments",
-        "Voice scheduling",
-      ],
+      title: "Legal Services",
+      description: "Client intake, consultation booking, document collection.",
+      gradient: "from-[#4A5568]/80 to-[#4A5568]/50",
+      icon: Scale,
+      features: ["Lead intake", "Consultation", "Doc collection"],
+    },
+    {
+      title: "Logistics & Delivery",
+      description: "Shipment tracking, dispatch updates, customer notifications.",
+      gradient: "from-[#2D3748]/80 to-[#2D3748]/50",
+      icon: Truck,
+      features: ["Shipment tracking", "Dispatch", "Status updates"],
     },
   ];
 
@@ -1824,6 +1816,21 @@ function IndustryUseCases() {
                 </div>
               </motion.div>
             ))}
+          </div>
+          {/* Secondary row: also built for (links) */}
+          <div className="mt-6 text-center">
+            <p className="text-sm text-gray-600">
+              Also built for:&nbsp;
+              <Link to="/solutions/automotive" className="text-[#F2994A] hover:underline">Automotive</Link>
+              &nbsp;·&nbsp;
+              <Link to="/solutions/financial" className="text-[#27AE60] hover:underline">Financial Services</Link>
+              &nbsp;·&nbsp;
+              <Link to="/solutions/travel" className="text-[#56CCF2] hover:underline">Travel &amp; Tourism</Link>
+              &nbsp;·&nbsp;
+              <Link to="/solutions/events" className="text-[#F97316] hover:underline">Event Management</Link>
+              &nbsp;·&nbsp;
+              <Link to="/solutions/home-services" className="text-[#F2C94C] hover:underline">Home Services</Link>
+            </p>
           </div>
         </div>
       </div>
