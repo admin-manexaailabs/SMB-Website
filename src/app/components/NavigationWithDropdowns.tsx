@@ -1687,19 +1687,15 @@ function MobileMenuAccordion({
           {links.map((link, index) => {
             const isActive = location.pathname === link.href;
             const isHighlight = link.highlight;
-  const industryLinks = [
-    { icon: Building2, label: "Real Estate", href: "/solutions/real-estate" },
-    { icon: GraduationCap, label: "Education & Coaching", href: "/solutions/education" },
-    { icon: Car, label: "Automotive", href: "/solutions/automotive" },
-    { icon: Scale, label: "Legal Services", href: "/solutions/legal" },
-    { icon: TrendingUp, label: "Financial Services", href: "/solutions/financial" },
-    { icon: Wrench, label: "Home Services", href: "/solutions/home-services" },
-    { icon: HeartPulse, label: "Healthcare & Clinics", href: "/solutions/healthcare" },
-    { icon: Dumbbell, label: "Fitness & Gyms", href: "/solutions/fitness" },
-    { icon: Plane, label: "Travel & Tourism", href: "/solutions/travel" },
-    { icon: CalendarDays, label: "Event Management", href: "/solutions/events" },
-    { icon: Truck, label: "Logistics & Delivery", href: "/solutions/logistics" },
-  ];
+            return (
+              <Link
+                key={index}
+                to={link.href}
+                className={`flex items-center gap-3 p-2.5 rounded-lg transition-all group ${
+                  isActive ? "bg-[#F6F0FF]" : "hover:bg-[#F6F0FF]"
+                }`}
+                role="menuitem"
+                tabIndex={0}
                 onClick={onLinkClick}
               >
                 <link.icon
