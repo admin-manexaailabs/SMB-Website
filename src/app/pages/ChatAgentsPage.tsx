@@ -2,6 +2,7 @@ import { Button } from '../components/ui/button';
 import NavigationWithDropdowns from '../components/NavigationWithDropdowns';
 import Footer from '../components/Footer';
 import { useState } from 'react';
+import { MessageSquare, ArrowRight, Play, Mic, CheckCircle, Calendar, Zap, Globe, Bot, Globe as GlobeIcon, X, Copy, Check } from 'lucide-react';
 import chatAgentHero from 'figma:asset/d486d847b71f1ceaf3bf9f71ce7d2005eb0fa507.png';
 import agentAvatar from 'figma:asset/b8c809b2aa8edc3fec217fc9cf45086116fd4dca.png';
 

@@ -1,10 +1,44 @@
+import React, { useState } from 'react';
 import { motion } from 'react';
-import { HeartPulse, MessageCircle, Phone, Mail, Globe, MessageSquare, CheckCircle, TrendingUp, Clock, Zap, Target, BarChart3, ArrowRight, AlertCircle, Calendar, Stethoscope } from 'lucide-react';
+import { HeartPulse, Heart, XCircle, MessageCircle, Phone, Mail, Globe, MessageSquare, CheckCircle, TrendingUp, Clock, Zap, Target, BarChart3, ArrowRight, AlertCircle, Calendar, Stethoscope, Bell, Bot, Users, FileText, UserCheck, Activity, ClipboardCheck, Building2, Shield, Lock } from 'lucide-react';
 import { Button } from '../components/ui/button';
 import NavigationWithDropdowns from '../components/NavigationWithDropdowns';
 import Footer from '../components/Footer';
 
 export default function HealthcarePage() {
+  const [journeyStep, setJourneyStep] = useState(1);
+  const [activeProblem, setActiveProblem] = useState(0);
+  const [reminderStep, setReminderStep] = useState(1);
+  const [activeChannel, setActiveChannel] = useState(0);
+
+  const journeySteps = [
+    { icon: Phone, label: 'Request' },
+    { icon: Calendar, label: 'Check' },
+    { icon: CheckCircle, label: 'Confirm' },
+    { icon: MessageCircle, label: 'Remind' }
+  ];
+
+  const problems = [
+    { icon: AlertCircle, title: 'Staff overwhelmed', problem: 'Front desk drowned in appointment requests', solution: 'Automate booking flows' },
+    { icon: Clock, title: 'High no-shows', problem: 'Manual reminders fail', solution: 'Automated reminders' },
+    { icon: Zap, title: 'Manual processes', problem: 'Repeating manual follow-ups', solution: 'Automate follow-ups' },
+    { icon: MessageCircle, title: 'Fragmented channels', problem: 'Multiple inboxes', solution: 'Unified inbox' }
+  ];
+
+  const reminderTimeline = [
+    { icon: CheckCircle, label: 'Booked', time: 'T0' },
+    { icon: MessageCircle, label: '24h Reminder', time: 'T-24h' },
+    { icon: MessageCircle, label: '2h Reminder', time: 'T-2h' },
+    { icon: CheckCircle, label: 'Follow-up', time: 'T+48h' }
+  ];
+
+  const channels = [
+    { icon: Phone, name: 'Phone', color: '#2F80ED', primary: false },
+    { icon: MessageCircle, name: 'WhatsApp', color: '#1DB954', primary: true },
+    { icon: Mail, name: 'Email', color: '#9B51E0', primary: false },
+    { icon: Globe, name: 'Web Chat', color: '#F2994A', primary: false },
+    { icon: MessageSquare, name: 'SMS', color: '#7C3AED', primary: false }
+  ];
 
   return (
     <div className="bg-white text-gray-900" style={{ fontFamily: 'Inter, sans-serif' }}>
@@ -354,9 +388,11 @@ export default function HealthcarePage() {
                   </div>
                 </motion.div>
               ))}
+
             </div>
           </div>
         </div>
+
       </section>
       <section className="py-24 bg-gray-50">
         <div className="w-full px-8 lg:px-16 xl:px-24">

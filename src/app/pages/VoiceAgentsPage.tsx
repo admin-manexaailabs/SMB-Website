@@ -2,6 +2,7 @@ import { Button } from '../components/ui/button';
 import NavigationWithDropdowns from '../components/NavigationWithDropdowns';
 import Footer from '../components/Footer';
 import { useState } from 'react';
+import { Phone, ArrowRight, Play, Mic, Volume2, CheckCircle, Radio, Users, Headphones, Clock, Shield, Zap } from 'lucide-react';
 import { ImageWithFallback } from '../components/figma/ImageWithFallback';
 
 export default function VoiceAgentsPage() {

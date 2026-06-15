@@ -53,6 +53,21 @@ import templatesFeatureImg from "figma:asset/532c53d8e1728ef3b3df4b7ff8d40742fd8
 import resourcesFeatureImg from "figma:asset/407ad7354770e39fba7c0fff9793c1b8bce734b4.png";
 import logoImg from "figma:asset/7b58b3b2864a86d8b403242e8c7134fb79e16e15.png";
 
+// Shared industry links used in multiple dropdowns
+const industryLinks = [
+  { icon: Building2, label: "Real Estate", href: "/solutions/real-estate" },
+  { icon: GraduationCap, label: "Education & Coaching", href: "/solutions/education" },
+  { icon: Car, label: "Automotive", href: "/solutions/automotive" },
+  { icon: Scale, label: "Legal Services", href: "/solutions/legal" },
+  { icon: TrendingUp, label: "Financial Services", href: "/solutions/financial" },
+  { icon: Wrench, label: "Home Services", href: "/solutions/home-services" },
+  { icon: HeartPulse, label: "Healthcare & Clinics", href: "/solutions/healthcare" },
+  { icon: Dumbbell, label: "Fitness & Gyms", href: "/solutions/fitness" },
+  { icon: Plane, label: "Travel & Tourism", href: "/solutions/travel" },
+  { icon: CalendarDays, label: "Event Management", href: "/solutions/events" },
+  { icon: Truck, label: "Logistics & Delivery", href: "/solutions/logistics" },
+];
+
 export default function NavigationWithDropdowns() {
   const location = useLocation();
   const [activeDropdown, setActiveDropdown] = useState<
@@ -1076,19 +1091,6 @@ function SolutionsDropdown({
     },
   ];
 
-  const industryLinks = [
-    { icon: Building2, label: "Real Estate", href: "/solutions/real-estate" },
-    { icon: GraduationCap, label: "Education & Coaching", href: "/solutions/education" },
-    { icon: Car, label: "Automotive", href: "/solutions/automotive" },
-    { icon: Scale, label: "Legal Services", href: "/solutions/legal" },
-    { icon: TrendingUp, label: "Financial Services", href: "/solutions/financial" },
-    { icon: Wrench, label: "Home Services", href: "/solutions/home-services" },
-    { icon: HeartPulse, label: "Healthcare & Clinics", href: "/solutions/healthcare" },
-    { icon: Dumbbell, label: "Fitness & Gyms", href: "/solutions/fitness" },
-    { icon: Plane, label: "Travel & Tourism", href: "/solutions/travel" },
-    { icon: CalendarDays, label: "Event Management", href: "/solutions/events" },
-    { icon: Truck, label: "Logistics & Delivery", href: "/solutions/logistics" },
-  ];
 
   return (
     <motion.div

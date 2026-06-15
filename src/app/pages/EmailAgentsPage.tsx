@@ -2,6 +2,7 @@ import { Button } from '../components/ui/button';
 import NavigationWithDropdowns from '../components/NavigationWithDropdowns';
 import Footer from '../components/Footer';
 import { useState } from 'react';
+import { Mail, ArrowRight, Play } from 'lucide-react';
 
 export default function EmailAgentsPage() {
   const [openFaq, setOpenFaq] = useState<number | null>(null);
