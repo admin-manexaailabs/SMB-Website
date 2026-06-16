@@ -54,7 +54,6 @@ import {
 } from "lucide-react";
 import { Button } from "./ui/button";
 import { useState, useEffect } from "react";
-import Chatbot from "./Chatbot";
 import TechnicalOverviewButton from "./TechnicalOverviewButton";
 import NavigationWithDropdowns from "./NavigationWithDropdowns";
 import Footer from "./Footer";
@@ -110,9 +109,6 @@ export default function OmniAgentHybrid() {
 
       {/* Footer */}
       <Footer />
-
-      {/* Chatbot */}
-      <Chatbot />
 
       {/* Technical Overview Button */}
       <TechnicalOverviewButton />
