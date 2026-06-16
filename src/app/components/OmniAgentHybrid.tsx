@@ -2,60 +2,53 @@ import { motion } from "motion/react";
 import { Link } from "react-router";
 import { toast } from "sonner";
 import {
-  ArrowRight,
-  Play,
   Sparkles,
-  MessageCircle,
-  Mail,
-  Globe,
-  CheckCircle,
-  Users,
-  Zap,
-  BarChart3,
-  Network,
-  Database,
-  Eye,
-  Phone,
-  Instagram,
-  Smartphone,
-  Clock,
-  TrendingUp,
-  Shield,
-  Star,
-  Code2,
-  Box,
-  FileText,
-  Bell,
-  Workflow,
-  Layers,
   Bot,
-  Send,
-  BookOpen,
-  UserPlus,
+  Workflow,
+  Globe,
   MessageSquare,
-  ChevronRight,
+  Phone,
+  Plug,
   ChevronDown,
-  Settings,
-  Briefcase,
-  DollarSign,
-  Headphones,
+  ArrowRight,
+  Calendar,
+  ShoppingCart,
+  RefreshCw,
+  Mail,
+  Megaphone,
+  Database,
+  Shield,
+  BookOpen,
   Code,
-  Target,
-  LayoutGrid,
-  Palette,
-  Award,
-  ChevronLeft,
-  Building2,
   GraduationCap,
-  Dumbbell,
+  Building2,
+  FileText,
+  Zap,
+  Users,
+  Car,
   Scale,
+  TrendingUp,
+  Wrench,
   HeartPulse,
+  Dumbbell,
+  Plane,
+  CalendarDays,
   Truck,
+  BarChart3,
+  CheckCircle,
+  Inbox,
+  Layers,
+  PhoneCall,
+  Network,
+  MessageCircle,
+  Menu,
+  X,
+  Cloud,
+  Eye,
+  Send,
+  ChevronLeft,
+  ChevronRight,
 } from "lucide-react";
-import { Button } from "./ui/button";
-import { useState, useEffect } from "react";
-import TechnicalOverviewButton from "./TechnicalOverviewButton";
-import NavigationWithDropdowns from "./NavigationWithDropdowns";
 import Footer from "./Footer";
 import gmailIcon from "figma:asset/b934c62f9be1fa946e5275b2896c2b9f45f43a6d.png";
 import whatsappIcon from "figma:asset/231880b596cafb100ae1f8485ffb9c56cb94eb9c.png";
@@ -1064,65 +1057,43 @@ function TestChatWindow() {
   const channels = [
     {
       name: "WhatsApp",
+      title: "Salon AI Agent",
       icon: MessageCircle,
       type: "whatsapp",
       messages: [
-        {
-          from: "user",
-          text: "Hi! When is my order arriving?",
-        },
-        {
-          from: "agent",
-          text: "Let me check that for you! Can you share your order number?",
-        },
-        { from: "user", text: "#12847" },
-        {
-          from: "agent",
-          text: "Your order will arrive tomorrow by 3 PM! 📦",
-        },
+        { from: "user", text: "Hi, do you have slots tomorrow?" },
+        { from: "agent", text: "Sure! What service are you looking for?" },
+        { from: "user", text: "Haircut" },
+        { from: "agent", text: "Available slots: 2 PM, 4 PM. Please confirm." },
+        { from: "user", text: "2 PM please" },
+        { from: "agent", text: "✅ Booked! Your haircut is confirmed for tomorrow at 2 PM." },
       ],
     },
     {
       name: "Web Chat",
+      title: "Bistro Reservations",
       icon: Globe,
       type: "webchat",
       messages: [
-        { from: "user", text: "Do you offer refunds?" },
-        {
-          from: "agent",
-          text: "Yes! We offer full refunds within 30 days of purchase.",
-        },
-        {
-          from: "user",
-          text: "Great, how do I start the process?",
-        },
-        {
-          from: "agent",
-          text: "I can help you with that! Please provide your email address.",
-        },
+        { from: "user", text: "Hi — do you have a table for 2 tonight?" },
+        { from: "agent", text: "We do! What time works best for you?" },
+        { from: "user", text: "7:30 PM" },
+        { from: "agent", text: "Reserved for 7:30 PM. Any dietary preferences?" },
+        { from: "user", text: "One vegan please" },
+        { from: "agent", text: "Noted — we'll prepare vegan options. See you tonight!" },
       ],
     },
     {
       name: "Email",
+      title: "Shop Support",
       icon: Mail,
       type: "email",
       messages: [
-        {
-          from: "user",
-          text: "I have a question about my subscription plan",
-        },
-        {
-          from: "agent",
-          text: "I'd be happy to help! What would you like to know about your subscription?",
-        },
-        {
-          from: "user",
-          text: "Can I upgrade to the pro plan?",
-        },
-        {
-          from: "agent",
-          text: "Absolutely! You can upgrade anytime. I'll send you the details.",
-        },
+        { from: "user", text: "My order #12847 hasn't arrived yet." },
+        { from: "agent", text: "I'm sorry — let me check the tracking for #12847." },
+        { from: "agent", text: "It shows out for delivery and will arrive today by 6 PM." },
+        { from: "user", text: "Thanks — can you also add signature required?" },
+        { from: "agent", text: "Done — signature required has been added to your delivery." },
       ],
     },
   ];
@@ -1180,13 +1151,13 @@ function TestChatWindow() {
           transition={{ duration: 0.3 }}
         >
           {currentChannel.type === "whatsapp" && (
-            <WhatsAppChat messages={currentChannel.messages} />
+            <WhatsAppChat channel={currentChannel} />
           )}
           {currentChannel.type === "webchat" && (
-            <WebChat messages={currentChannel.messages} />
+            <WebChat channel={currentChannel} />
           )}
           {currentChannel.type === "email" && (
-            <EmailChat messages={currentChannel.messages} />
+            <EmailChat channel={currentChannel} />
           )}
         </motion.div>
       </div>
@@ -1211,9 +1182,9 @@ function TestChatWindow() {
 
 // WhatsApp Chat Component
 function WhatsAppChat({
-  messages,
+  channel,
 }: {
-  messages: Array<{ from: string; text: string }>;
+  channel: { title?: string; messages: Array<{ from: string; text: string }>; };
 }) {
   return (
     <div className="bg-[#0D1418] rounded-3xl p-6 shadow-2xl border border-gray-800">
@@ -1224,9 +1195,7 @@ function WhatsAppChat({
         </div>
         <div className="flex items-center gap-2 flex-1">
           <div>
-            <div className="text-white text-sm">
-              Salon AI Agent
-            </div>
+            <div className="text-white text-sm">{channel.title || "Salon AI Agent"}</div>
             <div className="text-xs text-gray-500">Online</div>
           </div>
           <span className="px-2 py-0.5 bg-gradient-to-r from-green-500 to-emerald-500 text-white text-[10px] rounded-full">
@@ -1237,78 +1206,26 @@ function WhatsAppChat({
 
       {/* Messages */}
       <div className="space-y-3 max-h-[420px] overflow-y-auto">
-        {/* Booking Conversation */}
-        <motion.div
-          initial={{ opacity: 0, y: 10 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0 }}
-          className="flex justify-start"
-        >
-          <div className="rounded-2xl px-4 py-2.5 max-w-[75%] bg-[#1F2937] text-gray-200 rounded-tl-none">
-            <p className="text-sm">Hi, do you have slots tomorrow?</p>
-            <p className="text-xs mt-1 opacity-60">9:15 AM</p>
-          </div>
-        </motion.div>
-
-        <motion.div
-          initial={{ opacity: 0, y: 10 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.15 }}
-          className="flex justify-end"
-        >
-          <div className="rounded-2xl px-4 py-2.5 max-w-[75%] bg-gradient-to-r from-green-500 to-emerald-500 text-white rounded-tr-none">
-            <p className="text-sm">Sure! What service are you looking for?</p>
-            <p className="text-xs mt-1 opacity-60">9:16 AM</p>
-          </div>
-        </motion.div>
-
-        <motion.div
-          initial={{ opacity: 0, y: 10 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.3 }}
-          className="flex justify-start"
-        >
-          <div className="rounded-2xl px-4 py-2.5 max-w-[75%] bg-[#1F2937] text-gray-200 rounded-tl-none">
-            <p className="text-sm">Haircut</p>
-            <p className="text-xs mt-1 opacity-60">9:17 AM</p>
-          </div>
-        </motion.div>
-
-        <motion.div
-          initial={{ opacity: 0, y: 10 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.45 }}
-          className="flex justify-end"
-        >
-          <div className="rounded-2xl px-4 py-2.5 max-w-[75%] bg-gradient-to-r from-green-500 to-emerald-500 text-white rounded-tr-none">
-            <p className="text-sm">Available slots: 2 PM, 4 PM. Please confirm.</p>
-            <p className="text-xs mt-1 opacity-60">9:18 AM</p>
-          </div>
-        </motion.div>
-
-        <motion.div
-          initial={{ opacity: 0, y: 10 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.6 }}
-          className="flex justify-start"
-        >
-          <div className="rounded-2xl px-4 py-2.5 max-w-[75%] bg-[#1F2937] text-gray-200 rounded-tl-none">
-            <p className="text-sm">2 PM please</p>
-            <p className="text-xs mt-1 opacity-60">9:19 AM</p>
-          </div>
-        </motion.div>
-
-        <motion.div
-          initial={{ opacity: 0, y: 10 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.75 }}
-          className="flex justify-end"
-        >
-          <div className="rounded-2xl px-4 py-2.5 max-w-[75%] bg-gradient-to-r from-green-500 to-emerald-500 text-white rounded-tr-none">
-            <p className="text-sm">✅ Booked! Your haircut is confirmed for tomorrow at 2 PM.</p>
-            <p className="text-xs mt-1 opacity-60">9:20 AM</p>
-          </div>
-        </motion.div>
+        {channel.messages.map((msg, i) => (
+          <motion.div
+            key={i}
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: i * 0.12 }}
+            className={`flex ${msg.from === "agent" ? "justify-end" : "justify-start"}`}
+          >
+            <div
+              className={`rounded-2xl px-4 py-2.5 max-w-[75%] ${
+                msg.from === "agent"
+                  ? "bg-gradient-to-r from-green-500 to-emerald-500 text-white rounded-tr-none"
+                  : "bg-[#1F2937] text-gray-200 rounded-tl-none"
+              }`}
+            >
+              <p className="text-sm">{msg.text}</p>
+              <p className="text-xs mt-1 opacity-60">{i === channel.messages.length - 1 ? "" : ""}</p>
+            </div>
+          </motion.div>
+        ))}
 
         {/* Time Gap Indicator */}
         <motion.div
@@ -1317,12 +1234,10 @@ function WhatsAppChat({
           transition={{ delay: 0.9 }}
           className="flex justify-center py-2"
         >
-          <div className="px-3 py-1 rounded-full bg-gray-800 text-gray-400 text-xs">
-            Next Day - 1:00 PM
-          </div>
+          <div className="px-3 py-1 rounded-full bg-gray-800 text-gray-400 text-xs">Next Day - 1:00 PM</div>
         </motion.div>
 
-        {/* Reminder Message */}
+        {/* Reminder Message (example) */}
         <motion.div
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
@@ -1343,9 +1258,9 @@ function WhatsAppChat({
 
 // Web Chat Component
 function WebChat({
-  messages,
+  channel,
 }: {
-  messages: Array<{ from: string; text: string }>;
+  channel: { title?: string; messages: Array<{ from: string; text: string }>; };
 }) {
   return (
     <div className="bg-gradient-to-br from-gray-900 to-[#1a1d2e] rounded-3xl p-6 shadow-2xl border border-purple-500/30">
@@ -1358,15 +1273,15 @@ function WebChat({
             <div className="w-3 h-3 rounded-full bg-green-400" />
           </div>
           <span className="px-2 py-0.5 bg-gradient-to-r from-purple-500 to-blue-500 text-white text-[10px] rounded-full">
-            Support
+            {channel.title || 'Live Demo'}
           </span>
         </div>
-        <div className="text-xs text-gray-400">Live Chat</div>
+        <div className="text-xs text-gray-400">{channel.name || 'Web Chat'}</div>
       </div>
 
       {/* Messages */}
       <div className="space-y-4 max-h-[320px] overflow-y-auto">
-        {messages.map((msg, i) => (
+        {channel.messages.map((msg, i) => (
           <motion.div
             key={i}
             initial={{ opacity: 0, y: 10 }}
