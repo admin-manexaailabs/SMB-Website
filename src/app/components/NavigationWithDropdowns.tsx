@@ -805,40 +805,7 @@ function ProductDropdown({
                   </Link>
                 );
               })}
-              {/* First half of industry links */}
-              {industryLinks.slice(0, 6).map((link, idx) => {
-                const isActive = location.pathname === link.href;
-                return (
-                  <Link
-                    key={"industry-" + idx}
-                    to={link.href}
-                    className={`flex items-center gap-3 p-2.5 rounded-lg transition-all group ${
-                      isActive ? "bg-[#F6F0FF]" : "hover:bg-[#F6F0FF]"
-                    }`}
-                    role="menuitem"
-                    tabIndex={0}
-                  >
-                    <link.icon
-                      className={`w-[18px] h-[18px] transition-colors flex-shrink-0 ${
-                        isActive
-                          ? "text-[#2F80ED]"
-                          : "text-gray-400 group-hover:text-[#2F80ED]"
-                      }`}
-                      strokeWidth={1.5}
-                    />
-                    <span
-                      className={`text-[14px] transition-colors ${
-                        isActive
-                          ? "text-[#2F80ED] font-semibold"
-                          : "text-[#1A1A1A] group-hover:text-[#2F80ED]"
-                      }`}
-                      style={{ fontFamily: "Inter, sans-serif" }}
-                    >
-                      {link.label}
-                    </span>
-                  </Link>
-                );
-              })}
+              {/* (Removed embedded industry links; Industries now top-level) */}
             </div>
 
             {/* Second Column */}
@@ -1239,39 +1206,7 @@ function SolutionsDropdown({
 
             {/* Second Column: split industryLinks into two columns (first 6, last 5) */}
             <div className="space-y-1">
-              {industryLinks.slice(6).map((link, index) => {
-                const isActive = location.pathname === link.href;
-                return (
-                  <Link
-                    key={index}
-                    to={link.href}
-                    className={`flex items-center gap-3 p-2.5 rounded-lg transition-all group ${
-                      isActive ? "bg-[#F6F0FF]" : "hover:bg-[#F6F0FF]"
-                    }`}
-                    role="menuitem"
-                    tabIndex={0}
-                  >
-                    <link.icon
-                      className={`w-[18px] h-[18px] transition-colors flex-shrink-0 ${
-                        isActive
-                          ? "text-[#9B51E0]"
-                          : "text-gray-400 group-hover:text-purple-600"
-                      }`}
-                      strokeWidth={1.5}
-                    />
-                    <span
-                      className={`text-[14px] transition-colors ${
-                        isActive
-                          ? "text-[#9B51E0] font-semibold"
-                          : "text-[#1A1A1A] group-hover:text-purple-600"
-                      }`}
-                      style={{ fontFamily: "Inter, sans-serif" }}
-                    >
-                      {link.label}
-                    </span>
-                  </Link>
-                );
-              })}
+              {/* (Removed embedded industry links; Industries now top-level) */}
             </div>
           </div>
 
