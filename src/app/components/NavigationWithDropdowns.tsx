@@ -78,6 +78,7 @@ export default function NavigationWithDropdowns() {
   const productButtonRef = useRef<HTMLDivElement>(null);
   const agentsButtonRef = useRef<HTMLDivElement>(null);
   const solutionsButtonRef = useRef<HTMLDivElement>(null);
+  const industriesButtonRef = useRef<HTMLDivElement>(null);
   const templatesButtonRef = useRef<HTMLDivElement>(null);
   const resourcesButtonRef = useRef<HTMLDivElement>(null);
 
@@ -209,6 +210,27 @@ export default function NavigationWithDropdowns() {
                   {activeDropdown === "solutions" && (
                     <SolutionsDropdown
                       buttonRef={solutionsButtonRef}
+                      onClose={() => setActiveDropdown(null)}
+                    />
+                  )}
+                </AnimatePresence>
+              </div>
+
+              {/* Industries Dropdown */}
+              <div
+                ref={industriesButtonRef}
+                className="relative"
+                onMouseEnter={() => setActiveDropdown("industries")}
+                onMouseLeave={() => setActiveDropdown(null)}
+              >
+                <button className="flex items-center gap-1 text-[15px] text-[#1F2937] hover:text-[#2F80ED] transition-colors">
+                  Industries
+                  <ChevronDown className="w-4 h-4" />
+                </button>
+                <AnimatePresence>
+                  {activeDropdown === "industries" && (
+                    <IndustriesDropdown
+                      buttonRef={industriesButtonRef}
                       onClose={() => setActiveDropdown(null)}
                     />
                   )}
@@ -432,6 +454,15 @@ export default function NavigationWithDropdowns() {
                   onLinkClick={() => setMobileMenuOpen(false)}
                 />
 
+                {/* Industries Section */}
+                <MobileMenuAccordion
+                  title="Industries"
+                  isExpanded={expandedMobileMenu === "industries"}
+                  onToggle={() => setExpandedMobileMenu(expandedMobileMenu === "industries" ? null : "industries")}
+                  links={industryLinks}
+                  onLinkClick={() => setMobileMenuOpen(false)}
+                />
+
                 {/* Templates Section */}
                 <div>
                   <button
@@ -580,6 +611,55 @@ export default function NavigationWithDropdowns() {
         )}
       </AnimatePresence>
     </>
+  );
+}
+
+// Industries Dropdown Component
+function IndustriesDropdown({
+  buttonRef,
+  onClose,
+}: {
+  buttonRef: React.RefObject<HTMLDivElement>;
+  onClose: () => void;
+}) {
+  const location = useLocation();
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 6 }}
+      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0, y: 6 }}
+      transition={{ duration: 0.15, ease: "easeOut" }}
+      className="fixed mt-2 w-[560px] bg-white rounded-[18px] border border-[#E7E7E7] overflow-hidden max-[880px]:w-[calc(100vw-48px)] left-1/2 -translate-x-1/2"
+      style={{
+        boxShadow: "0 12px 32px rgba(0,0,0,0.06)",
+        top: buttonRef.current
+          ? buttonRef.current.getBoundingClientRect().bottom + window.scrollY
+          : 0,
+        maxHeight: "65vh",
+      }}
+      role="menu"
+      aria-label="Industries menu"
+    >
+      <div className="p-6 max-h-[65vh] overflow-y-auto">
+        <div className="grid grid-cols-2 gap-4">
+          {industryLinks.map((link, idx) => {
+            const isActive = location.pathname === link.href;
+            return (
+              <Link
+                key={idx}
+                to={link.href}
+                className={`flex items-center gap-3 p-2.5 rounded-lg transition-all group ${isActive ? "bg-[#F6F0FF]" : "hover:bg-[#F6F0FF]"}`}
+                role="menuitem"
+                tabIndex={0}
+              >
+                <link.icon className={`w-[18px] h-[18px] ${isActive ? "text-[#2F80ED]" : "text-gray-400 group-hover:text-[#2F80ED]"}`} strokeWidth={1.5} />
+                <span className={`text-[14px] ${isActive ? "text-[#2F80ED] font-semibold" : "text-[#1A1A1A] group-hover:text-[#2F80ED]"}`} style={{ fontFamily: "Inter, sans-serif" }}>{link.label}</span>
+              </Link>
+            );
+          })}
+        </div>
+      </div>
+    </motion.div>
   );
 }
 
