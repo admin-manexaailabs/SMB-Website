@@ -1,6 +1,6 @@
 import { motion, AnimatePresence } from "motion/react";
 import { Link, useLocation } from "react-router";
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef, useEffect, useLayoutEffect } from "react";
 import {
   Sparkles,
   Bot,
@@ -70,6 +70,7 @@ const industryLinks = [
 
 export default function NavigationWithDropdowns() {
   const location = useLocation();
+  
   const [activeDropdown, setActiveDropdown] = useState<
     string | null
   >(null);
@@ -167,6 +168,7 @@ export default function NavigationWithDropdowns() {
                     <ProductDropdown
                       buttonRef={productButtonRef}
                       onClose={() => setActiveDropdown(null)}
+                      onEnter={() => setActiveDropdown("product")}
                     />
                   )}
                 </AnimatePresence>
@@ -188,6 +190,7 @@ export default function NavigationWithDropdowns() {
                     <AgentsDropdown
                       buttonRef={agentsButtonRef}
                       onClose={() => setActiveDropdown(null)}
+                      onEnter={() => setActiveDropdown("agents")}
                     />
                   )}
                 </AnimatePresence>
@@ -211,6 +214,7 @@ export default function NavigationWithDropdowns() {
                     <SolutionsDropdown
                       buttonRef={solutionsButtonRef}
                       onClose={() => setActiveDropdown(null)}
+                      onEnter={() => setActiveDropdown("solutions")}
                     />
                   )}
                 </AnimatePresence>
@@ -232,6 +236,7 @@ export default function NavigationWithDropdowns() {
                     <IndustriesDropdown
                       buttonRef={industriesButtonRef}
                       onClose={() => setActiveDropdown(null)}
+                      onEnter={() => setActiveDropdown("industries")}
                     />
                   )}
                 </AnimatePresence>
@@ -255,6 +260,7 @@ export default function NavigationWithDropdowns() {
                     <TemplatesDropdown
                       buttonRef={templatesButtonRef}
                       onClose={() => setActiveDropdown(null)}
+                      onEnter={() => setActiveDropdown("templates")}
                     />
                   )}
                 </AnimatePresence>
@@ -302,6 +308,7 @@ export default function NavigationWithDropdowns() {
                     <ResourcesDropdown
                       buttonRef={resourcesButtonRef}
                       onClose={() => setActiveDropdown(null)}
+                      onEnter={() => setActiveDropdown("resources")}
                     />
                   )}
                 </AnimatePresence>
@@ -618,13 +625,22 @@ export default function NavigationWithDropdowns() {
 function IndustriesDropdown({
   buttonRef,
   onClose,
+  onEnter,
 }: {
   buttonRef: React.RefObject<HTMLDivElement>;
   onClose: () => void;
+  onEnter: () => void;
 }) {
   const location = useLocation();
+  const left = buttonRef.current
+    ? buttonRef.current.getBoundingClientRect().left +
+      buttonRef.current.getBoundingClientRect().width / 2 +
+      window.scrollX
+    : window.innerWidth / 2;
   return (
     <motion.div
+      onMouseEnter={() => onEnter()}
+      onMouseLeave={() => onClose()}
       initial={{ opacity: 0, y: 6 }}
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, y: 6 }}
@@ -633,8 +649,9 @@ function IndustriesDropdown({
       style={{
         boxShadow: "0 12px 32px rgba(0,0,0,0.06)",
         top: buttonRef.current
-          ? buttonRef.current.getBoundingClientRect().bottom + window.scrollY
+          ? buttonRef.current.getBoundingClientRect().bottom + window.scrollY - 6
           : 0,
+        left: left,
         maxHeight: "65vh",
       }}
       role="menu"
@@ -667,14 +684,20 @@ function IndustriesDropdown({
 function ProductDropdown({
   buttonRef,
   onClose,
+  onEnter,
 }: {
   buttonRef: React.RefObject<HTMLDivElement>;
   onClose: () => void;
+  onEnter: () => void;
 }) {
   const location = useLocation();
   const dropdownRef = useRef<HTMLDivElement>(null);
   const firstLinkRef = useRef<HTMLAnchorElement>(null);
-
+  const left = buttonRef.current
+    ? buttonRef.current.getBoundingClientRect().left +
+      buttonRef.current.getBoundingClientRect().width / 2 +
+      window.scrollX
+    : window.innerWidth / 2;
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === "Escape") {
@@ -689,12 +712,7 @@ function ProductDropdown({
 
   const mainLinks = [
     {
-      icon: Workflow,
-      label: "Flow Builder",
-      href: "/product/flow-builder",
-    },
-    { icon: Bot, label: "AI Agents", href: "/product/agents" },
-    {
+
       icon: Globe,
       label: "Channels",
       href: "/product/channels",
@@ -715,7 +733,6 @@ function ProductDropdown({
       href: "/product/integrations",
     },
   ];
-
   const secondaryLinks = [
     { icon: Layers, label: "Models", href: "/product/models" },
     {
@@ -741,23 +758,14 @@ function ProductDropdown({
   ];
 
   return (
-    <motion.div
-      ref={dropdownRef}
-      initial={{ opacity: 0, y: 6 }}
-      animate={{ opacity: 1, y: 0 }}
-      exit={{ opacity: 0, y: 6 }}
-      transition={{ duration: 0.15, ease: "easeOut" }}
-      className="fixed mt-2 w-[920px] bg-white rounded-[18px] border border-[#E7E7E7] overflow-hidden max-[880px]:w-[calc(100vw-48px)] left-1/2 -translate-x-1/2"
-      style={{
-        boxShadow: "0 12px 32px rgba(0,0,0,0.06)",
-        top: buttonRef.current
-          ? buttonRef.current.getBoundingClientRect().bottom +
-            window.scrollY
-          : 0,
-        maxHeight: "65vh",
-      }}
-      role="menu"
-      aria-label="Product menu"
+    <AnchorDropdown
+      buttonRef={buttonRef}
+      width="920px"
+      onMouseEnter={() => onEnter()}
+      onMouseLeave={() => onClose()}
+      motionProps={{ initial: { opacity: 0, y: 6 }, animate: { opacity: 1, y: 0 }, exit: { opacity: 0, y: 6 }, transition: { duration: 0.15, ease: 'easeOut' } }}
+      className="bg-white rounded-[18px] border border-[#E7E7E7] max-[880px]:w-[calc(100vw-48px)]"
+      ariaLabel="Product menu"
     >
       <div
         className="p-8 max-h-[65vh] overflow-y-auto"
@@ -895,7 +903,7 @@ function ProductDropdown({
           </div>
         </div>
       </div>
-    </motion.div>
+    </AnchorDropdown>
   );
 }
 
@@ -903,11 +911,18 @@ function ProductDropdown({
 function AgentsDropdown({
   buttonRef,
   onClose,
+  onEnter,
 }: {
   buttonRef: React.RefObject<HTMLDivElement>;
   onClose: () => void;
+  onEnter: () => void;
 }) {
   const location = useLocation();
+  const left = buttonRef.current
+    ? buttonRef.current.getBoundingClientRect().left +
+      buttonRef.current.getBoundingClientRect().width / 2 +
+      window.scrollX
+    : window.innerWidth / 2;
   const mainLinks = [
     {
       icon: MessageSquare,
@@ -951,22 +966,14 @@ function AgentsDropdown({
   ];
 
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 6 }}
-      animate={{ opacity: 1, y: 0 }}
-      exit={{ opacity: 0, y: 6 }}
-      transition={{ duration: 0.15, ease: "easeOut" }}
-      className="fixed mt-2 w-[920px] bg-white rounded-[18px] border border-[#E7E7E7] overflow-hidden max-[880px]:w-[calc(100vw-48px)] left-1/2 -translate-x-1/2"
-      style={{
-        boxShadow: "0 12px 32px rgba(0,0,0,0.06)",
-        top: buttonRef.current
-          ? buttonRef.current.getBoundingClientRect().bottom +
-            window.scrollY
-          : 0,
-        maxHeight: "65vh",
-      }}
-      role="menu"
-      aria-label="Agents menu"
+    <AnchorDropdown
+      buttonRef={buttonRef}
+      width="920px"
+      onMouseEnter={() => onEnter()}
+      onMouseLeave={() => onClose()}
+      motionProps={{ initial: { opacity: 0, y: 6 }, animate: { opacity: 1, y: 0 }, exit: { opacity: 0, y: 6 }, transition: { duration: 0.15, ease: 'easeOut' } }}
+      className="bg-white rounded-[18px] border border-[#E7E7E7] max-[880px]:w-[calc(100vw-48px)]"
+      ariaLabel="Agents menu"
     >
       <div
         className="p-8 max-h-[65vh] overflow-y-auto"
@@ -1102,7 +1109,7 @@ function AgentsDropdown({
           </div>
         </div>
       </div>
-    </motion.div>
+    </AnchorDropdown>
   );
 }
 
@@ -1110,11 +1117,18 @@ function AgentsDropdown({
 function SolutionsDropdown({
   buttonRef,
   onClose,
+  onEnter,
 }: {
   buttonRef: React.RefObject<HTMLDivElement>;
   onClose: () => void;
+  onEnter: () => void;
 }) {
   const location = useLocation();
+  const left = buttonRef.current
+    ? buttonRef.current.getBoundingClientRect().left +
+      buttonRef.current.getBoundingClientRect().width / 2 +
+      window.scrollX
+    : window.innerWidth / 2;
   const mainLinks = [
     {
       icon: Calendar,
@@ -1140,22 +1154,14 @@ function SolutionsDropdown({
 
 
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 6 }}
-      animate={{ opacity: 1, y: 0 }}
-      exit={{ opacity: 0, y: 6 }}
-      transition={{ duration: 0.15, ease: "easeOut" }}
-      className="fixed mt-2 w-[920px] bg-white rounded-[18px] border border-[#E7E7E7] overflow-hidden max-[880px]:w-[calc(100vw-48px)] left-1/2 -translate-x-1/2"
-      style={{
-        boxShadow: "0 12px 32px rgba(0,0,0,0.06)",
-        top: buttonRef.current
-          ? buttonRef.current.getBoundingClientRect().bottom +
-            window.scrollY
-          : 0,
-        maxHeight: "65vh",
-      }}
-      role="menu"
-      aria-label="Solutions menu"
+    <AnchorDropdown
+      buttonRef={buttonRef}
+      width="920px"
+      onMouseEnter={() => onEnter()}
+      onMouseLeave={() => onClose()}
+      motionProps={{ initial: { opacity: 0, y: 6 }, animate: { opacity: 1, y: 0 }, exit: { opacity: 0, y: 6 }, transition: { duration: 0.15, ease: 'easeOut' } }}
+      className="bg-white rounded-[18px] border border-[#E7E7E7] max-[880px]:w-[calc(100vw-48px)]"
+      ariaLabel="Solutions menu"
     >
       <div
         className="p-8 max-h-[65vh] overflow-y-auto"
@@ -1259,7 +1265,7 @@ function SolutionsDropdown({
           </div>
         </div>
       </div>
-    </motion.div>
+    </AnchorDropdown>
   );
 }
 
@@ -1267,10 +1273,17 @@ function SolutionsDropdown({
 function TemplatesDropdown({
   buttonRef,
   onClose,
+  onEnter,
 }: {
   buttonRef: React.RefObject<HTMLDivElement>;
   onClose: () => void;
+  onEnter: () => void;
 }) {
+  const left = buttonRef.current
+    ? buttonRef.current.getBoundingClientRect().left +
+      buttonRef.current.getBoundingClientRect().width / 2 +
+      window.scrollX
+    : window.innerWidth / 2;
   const mainLinks = [
     {
       icon: Calendar,
@@ -1326,22 +1339,14 @@ function TemplatesDropdown({
   ];
 
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 6 }}
-      animate={{ opacity: 1, y: 0 }}
-      exit={{ opacity: 0, y: 6 }}
-      transition={{ duration: 0.15, ease: "easeOut" }}
-      className="fixed mt-2 w-[920px] bg-white rounded-[18px] border border-[#E7E7E7] overflow-hidden max-[880px]:w-[calc(100vw-48px)] left-1/2 -translate-x-1/2"
-      style={{
-        boxShadow: "0 12px 32px rgba(0,0,0,0.06)",
-        top: buttonRef.current
-          ? buttonRef.current.getBoundingClientRect().bottom +
-            window.scrollY
-          : 0,
-        maxHeight: "65vh",
-      }}
-      role="menu"
-      aria-label="Templates menu"
+    <AnchorDropdown
+      buttonRef={buttonRef}
+      width="920px"
+      onMouseEnter={() => onEnter()}
+      onMouseLeave={() => onClose()}
+      motionProps={{ initial: { opacity: 0, y: 6 }, animate: { opacity: 1, y: 0 }, exit: { opacity: 0, y: 6 }, transition: { duration: 0.15, ease: 'easeOut' } }}
+      className="bg-white rounded-[18px] border border-[#E7E7E7] max-[880px]:w-[calc(100vw-48px)]"
+      ariaLabel="Templates menu"
     >
       <div
         className="p-8 max-h-[65vh] overflow-y-auto"
@@ -1477,7 +1482,7 @@ function TemplatesDropdown({
           </div>
         </div>
       </div>
-    </motion.div>
+    </AnchorDropdown>
   );
 }
 
@@ -1485,11 +1490,18 @@ function TemplatesDropdown({
 function ResourcesDropdown({
   buttonRef,
   onClose,
+  onEnter,
 }: {
   buttonRef: React.RefObject<HTMLDivElement>;
   onClose: () => void;
+  onEnter: () => void;
 }) {
   const location = useLocation();
+  const left = buttonRef.current
+    ? buttonRef.current.getBoundingClientRect().left +
+      buttonRef.current.getBoundingClientRect().width / 2 +
+      window.scrollX
+    : window.innerWidth / 2;
   const allLinks = [
     { icon: BookOpen, label: "Blog", href: "/blogs" },
     {
@@ -1507,22 +1519,14 @@ function ResourcesDropdown({
   ];
 
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 6 }}
-      animate={{ opacity: 1, y: 0 }}
-      exit={{ opacity: 0, y: 6 }}
-      transition={{ duration: 0.15, ease: "easeOut" }}
-      className="fixed mt-2 w-[720px] bg-white rounded-[18px] border border-[#E7E7E7] overflow-hidden max-[880px]:w-[calc(100vw-48px)] left-1/2 -translate-x-1/2"
-      style={{
-        boxShadow: "0 12px 32px rgba(0,0,0,0.06)",
-        top: buttonRef.current
-          ? buttonRef.current.getBoundingClientRect().bottom +
-            window.scrollY
-          : 0,
-        maxHeight: "65vh",
-      }}
-      role="menu"
-      aria-label="Resources menu"
+    <AnchorDropdown
+      buttonRef={buttonRef}
+      width="720px"
+      onMouseEnter={() => onEnter()}
+      onMouseLeave={() => onClose()}
+      motionProps={{ initial: { opacity: 0, y: 6 }, animate: { opacity: 1, y: 0 }, exit: { opacity: 0, y: 6 }, transition: { duration: 0.15, ease: 'easeOut' } }}
+      className="bg-white rounded-[18px] border border-[#E7E7E7] max-[880px]:w-[calc(100vw-48px)]"
+      ariaLabel="Resources menu"
     >
       <div
         className="p-8 max-h-[65vh] overflow-y-auto"
@@ -1618,7 +1622,7 @@ function ResourcesDropdown({
           </div>
         </div>
       </div>
-    </motion.div>
+    </AnchorDropdown>
   );
 }
 
@@ -1743,5 +1747,79 @@ function MobileMenuAccordion({
         </div>
       )}
     </div>
+  );
+}
+
+// AnchorDropdown: centers on trigger but clamps to viewport and recalculates on resize/scroll
+function AnchorDropdown({
+  buttonRef,
+  width = "920px",
+  children,
+  onMouseEnter,
+  onMouseLeave,
+  motionProps = {},
+  className = "",
+  ariaLabel,
+}: {
+  buttonRef: React.RefObject<HTMLElement>;
+  width?: string;
+  children: React.ReactNode;
+  onMouseEnter?: () => void;
+  onMouseLeave?: () => void;
+  motionProps?: any;
+  className?: string;
+  ariaLabel?: string;
+}) {
+  const dropdownRef = useRef<HTMLDivElement>(null);
+  const [pos, setPos] = useState({ top: 0, left: 0 });
+
+  useLayoutEffect(() => {
+    function update() {
+      const btn = buttonRef?.current?.getBoundingClientRect();
+      const dd = dropdownRef?.current?.getBoundingClientRect();
+      if (!btn || !dd) return;
+      const scrollX = window.scrollX || window.pageXOffset || 0;
+      const scrollY = window.scrollY || window.pageYOffset || 0;
+      // center on trigger by default
+      let left = btn.left + btn.width / 2 + scrollX - dd.width / 2;
+      const padding = 12;
+      left = Math.max(padding, Math.min(left, window.innerWidth - dd.width - padding));
+      const top = btn.bottom + scrollY - 6; // small overlap to avoid gap
+      setPos({ left, top });
+    }
+
+    update();
+    const ro = typeof ResizeObserver !== "undefined" ? new ResizeObserver(update) : null;
+    if (dropdownRef.current && ro) ro.observe(dropdownRef.current);
+    window.addEventListener("resize", update);
+    window.addEventListener("scroll", update, { passive: true });
+    return () => {
+      if (ro) ro.disconnect();
+      window.removeEventListener("resize", update);
+      window.removeEventListener("scroll", update);
+    };
+  }, [buttonRef?.current]);
+
+  return (
+    <motion.div
+      ref={dropdownRef}
+      onMouseEnter={onMouseEnter}
+      onMouseLeave={onMouseLeave}
+      className={className}
+      style={{
+        position: "fixed",
+        top: pos.top,
+        left: pos.left,
+        width: width,
+        maxHeight: "65vh",
+        boxShadow: "0 12px 32px rgba(0,0,0,0.06)",
+        overflow: "hidden",
+      }}
+      role="menu"
+      aria-label={ariaLabel}
+      {...motionProps}
+    >
+      {children}
+    </motion.div>
   );
 }

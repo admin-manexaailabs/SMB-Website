@@ -6,12 +6,19 @@ import {
   Bot,
   Workflow,
   Globe,
+  GraduationCap,
+  MessageCircle,
   MessageSquare,
   Phone,
+  Smartphone,
+  PhoneCall,
   Plug,
   ChevronDown,
+  ChevronLeft,
+  ChevronRight,
   ArrowRight,
   Calendar,
+  CalendarDays,
   ShoppingCart,
   RefreshCw,
   Mail,
@@ -19,41 +26,49 @@ import {
   Database,
   Shield,
   BookOpen,
-  Code,
-  GraduationCap,
-  Building2,
   FileText,
+  Code,
+  Code2,
   Zap,
   Users,
   Car,
+  Truck,
+  Plane,
+  Building2,
   Scale,
   TrendingUp,
   Wrench,
   HeartPulse,
   Dumbbell,
-  Plane,
-  CalendarDays,
-  Truck,
   BarChart3,
+  UserPlus,
   CheckCircle,
+  Clock,
   Inbox,
   Layers,
-  PhoneCall,
   Network,
-  MessageCircle,
   Menu,
   X,
   Cloud,
   Eye,
   Send,
-  ChevronLeft,
-  ChevronRight,
+  Target,
+  Instagram,       
+  Play,
+  Palette,
+  Headphones,
+  Box,
+  Bell,
 } from "lucide-react";
+import React, { useState, useEffect } from "react";
+import { Button } from "./ui/button";
+import NavigationWithDropdowns from "./NavigationWithDropdowns";
 import Footer from "./Footer";
 import gmailIcon from "figma:asset/b934c62f9be1fa946e5275b2896c2b9f45f43a6d.png";
 import whatsappIcon from "figma:asset/231880b596cafb100ae1f8485ffb9c56cb94eb9c.png";
 import messengerIcon from "figma:asset/f8c9a96699d1add886617252b2c5cf6f4a964ae6.png";
 import CinematicVoiceAgent from "./CinematicVoiceAgent";
+import TechnicalOverviewButton from "./TechnicalOverviewButton";
 
 export default function OmniAgentHybrid() {
   return (
@@ -103,8 +118,8 @@ export default function OmniAgentHybrid() {
       {/* Footer */}
       <Footer />
 
-      {/* Technical Overview Button */}
-      <TechnicalOverviewButton />
+      {/* Technical Overview Button (guarded to avoid runtime ReferenceError) */}
+      {typeof TechnicalOverviewButton !== "undefined" && <TechnicalOverviewButton />}
     </div>
   );
 }
