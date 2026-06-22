@@ -1633,7 +1633,7 @@ function KPIMetrics() {
 function IndustryUseCases() {
   const useCases = [
     {
-      title: "Real Estate",
+      title: "Real state",
       description: "Lead capture, viewing scheduling, follow-up campaigns.",
       gradient: "from-[#2F80ED]/80 to-[#2F80ED]/50",
       icon: Building2,

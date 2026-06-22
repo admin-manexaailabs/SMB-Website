@@ -52,6 +52,7 @@ import solutionsFeatureImg from "figma:asset/f300b80a367d934ae53f26e18a62f1d1012
 import templatesFeatureImg from "figma:asset/532c53d8e1728ef3b3df4b7ff8d40742fd8edaca.png";
 import resourcesFeatureImg from "figma:asset/407ad7354770e39fba7c0fff9793c1b8bce734b4.png";
 import logoImg from "figma:asset/7b58b3b2864a86d8b403242e8c7134fb79e16e15.png";
+import industriesFeatureImg from "../../assets/industries-feature.png.png";
 
 // Shared industry links used in multiple dropdowns
 const industryLinks = [
@@ -627,56 +628,92 @@ function IndustriesDropdown({
   onClose,
   onEnter,
 }: {
-  buttonRef: React.RefObject<HTMLDivElement>;
+  buttonRef: React.RefObject<HTMLDivElement | null>;
   onClose: () => void;
   onEnter: () => void;
 }) {
   const location = useLocation();
-  const left = buttonRef.current
-    ? buttonRef.current.getBoundingClientRect().left +
-      buttonRef.current.getBoundingClientRect().width / 2 +
-      window.scrollX
-    : window.innerWidth / 2;
+
+  // split industry links into two columns
+  const half = Math.ceil(industryLinks.length / 2);
+  const leftLinks = industryLinks.slice(0, half);
+  const rightLinks = industryLinks.slice(half);
+
   return (
-    <motion.div
+    <AnchorDropdown
+      buttonRef={buttonRef}
+      width="920px"
       onMouseEnter={() => onEnter()}
       onMouseLeave={() => onClose()}
-      initial={{ opacity: 0, y: 6 }}
-      animate={{ opacity: 1, y: 0 }}
-      exit={{ opacity: 0, y: 6 }}
-      transition={{ duration: 0.15, ease: "easeOut" }}
-      className="fixed mt-2 w-[560px] bg-white rounded-[18px] border border-[#E7E7E7] overflow-hidden max-[880px]:w-[calc(100vw-48px)] left-1/2 -translate-x-1/2"
-      style={{
-        boxShadow: "0 12px 32px rgba(0,0,0,0.06)",
-        top: buttonRef.current
-          ? buttonRef.current.getBoundingClientRect().bottom + window.scrollY - 6
-          : 0,
-        left: left,
-        maxHeight: "65vh",
-      }}
-      role="menu"
-      aria-label="Industries menu"
+      motionProps={{ initial: { opacity: 0, y: 6 }, animate: { opacity: 1, y: 0 }, exit: { opacity: 0, y: 6 }, transition: { duration: 0.15, ease: 'easeOut' } }}
+      className="bg-white rounded-[18px] border border-[#E7E7E7] max-[880px]:w-[calc(100vw-48px)]"
+      ariaLabel="Industries menu"
     >
-      <div className="p-6 max-h-[65vh] overflow-y-auto">
-        <div className="grid grid-cols-2 gap-4">
-          {industryLinks.map((link, idx) => {
-            const isActive = location.pathname === link.href;
-            return (
-              <Link
-                key={idx}
-                to={link.href}
-                className={`flex items-center gap-3 p-2.5 rounded-lg transition-all group ${isActive ? "bg-[#F6F0FF]" : "hover:bg-[#F6F0FF]"}`}
-                role="menuitem"
-                tabIndex={0}
-              >
-                <link.icon className={`w-[18px] h-[18px] ${isActive ? "text-[#2F80ED]" : "text-gray-400 group-hover:text-[#2F80ED]"}`} strokeWidth={1.5} />
-                <span className={`text-[14px] ${isActive ? "text-[#2F80ED] font-semibold" : "text-[#1A1A1A] group-hover:text-[#2F80ED]"}`} style={{ fontFamily: "Inter, sans-serif" }}>{link.label}</span>
-              </Link>
-            );
-          })}
+      <div className="p-8 max-h-[65vh] overflow-y-auto">
+        <div className="grid grid-cols-[1fr_300px] gap-8 max-[880px]:grid-cols-1">
+          <div className="grid grid-cols-2 gap-x-6 gap-y-1 max-[880px]:grid-cols-1">
+            <div className="space-y-1">
+              {leftLinks.map((link, idx) => {
+                const isActive = location.pathname === link.href;
+                return (
+                  <Link
+                    key={idx}
+                    to={link.href}
+                    className={`flex items-center gap-3 p-2.5 rounded-lg transition-all group ${isActive ? "bg-[#F6F0FF]" : "hover:bg-[#F6F0FF]"}`}
+                    role="menuitem"
+                    tabIndex={0}
+                  >
+                    <link.icon className={`w-[18px] h-[18px] ${isActive ? "text-[#2F80ED]" : "text-gray-400 group-hover:text-[#2F80ED]"}`} strokeWidth={1.5} />
+                    <span className={`text-[14px] ${isActive ? "text-[#2F80ED] font-semibold" : "text-[#1A1A1A] group-hover:text-[#2F80ED]"}`} style={{ fontFamily: "Inter, sans-serif" }}>{link.label}</span>
+                  </Link>
+                );
+              })}
+            </div>
+
+            <div className="space-y-1">
+              {rightLinks.map((link, idx) => {
+                const isActive = location.pathname === link.href;
+                return (
+                  <Link
+                    key={idx}
+                    to={link.href}
+                    className={`flex items-center gap-3 p-2.5 rounded-lg transition-all group ${isActive ? "bg-[#F6F0FF]" : "hover:bg-[#F6F0FF]"}`}
+                    role="menuitem"
+                    tabIndex={0}
+                  >
+                    <link.icon className={`w-[18px] h-[18px] ${isActive ? "text-[#2F80ED]" : "text-gray-400 group-hover:text-[#2F80ED]"}`} strokeWidth={1.5} />
+                    <span className={`text-[14px] ${isActive ? "text-[#2F80ED] font-semibold" : "text-[#1A1A1A] group-hover:text-[#2F80ED]"}`} style={{ fontFamily: "Inter, sans-serif" }}>{link.label}</span>
+                  </Link>
+                );
+              })}
+            </div>
+          </div>
+
+          <div className="max-[880px]:hidden">
+            <div className="text-[11px] text-[#5A5A5A] mb-3 tracking-wider uppercase" style={{ fontFamily: "Inter, sans-serif" }}>
+              Featured
+            </div>
+            <Link to="/solutions" className="block group">
+              <div className="relative h-[200px] rounded-2xl overflow-hidden group-hover:scale-[1.02] transition-transform" style={{ boxShadow: "0 4px 16px rgba(16, 185, 129, 0.15)" }}>
+                <img src={industriesFeatureImg} alt="Industry Solutions" className="absolute inset-0 w-full h-full object-cover" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
+                <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
+                  <div className="w-10 h-10 bg-white/20 backdrop-blur-sm rounded-lg flex items-center justify-center mb-3">
+                    <Sparkles className="w-5 h-5" strokeWidth={1.5} />
+                  </div>
+                  <h4 className="text-[15px] mb-1.5" style={{ fontFamily: "DM Sans, sans-serif" }}>
+                    Industry Solutions
+                  </h4>
+                  <p className="text-[12px] text-white/80" style={{ fontFamily: "Inter, sans-serif" }}>
+                    Pre-built templates and workflows
+                  </p>
+                </div>
+              </div>
+            </Link>
+          </div>
         </div>
       </div>
-    </motion.div>
+    </AnchorDropdown>
   );
 }
 
@@ -686,7 +723,7 @@ function ProductDropdown({
   onClose,
   onEnter,
 }: {
-  buttonRef: React.RefObject<HTMLDivElement>;
+  buttonRef: React.RefObject<HTMLDivElement | null>;
   onClose: () => void;
   onEnter: () => void;
 }) {
@@ -913,7 +950,7 @@ function AgentsDropdown({
   onClose,
   onEnter,
 }: {
-  buttonRef: React.RefObject<HTMLDivElement>;
+  buttonRef: React.RefObject<HTMLDivElement | null>;
   onClose: () => void;
   onEnter: () => void;
 }) {
@@ -1119,7 +1156,7 @@ function SolutionsDropdown({
   onClose,
   onEnter,
 }: {
-  buttonRef: React.RefObject<HTMLDivElement>;
+  buttonRef: React.RefObject<HTMLDivElement | null>;
   onClose: () => void;
   onEnter: () => void;
 }) {
@@ -1156,7 +1193,7 @@ function SolutionsDropdown({
   return (
     <AnchorDropdown
       buttonRef={buttonRef}
-      width="920px"
+      width="560px"
       onMouseEnter={() => onEnter()}
       onMouseLeave={() => onClose()}
       motionProps={{ initial: { opacity: 0, y: 6 }, animate: { opacity: 1, y: 0 }, exit: { opacity: 0, y: 6 }, transition: { duration: 0.15, ease: 'easeOut' } }}
@@ -1164,56 +1201,48 @@ function SolutionsDropdown({
       ariaLabel="Solutions menu"
     >
       <div
-        className="p-8 max-h-[65vh] overflow-y-auto"
+        className="p-6 max-h-[65vh] overflow-y-auto"
         style={{
           scrollbarWidth: "thin",
           scrollbarColor: "#E7E7E7 transparent",
         }}
       >
-        <div className="grid grid-cols-[1fr_300px] gap-8 max-[880px]:grid-cols-1">
-          {/* Left: Dual Column Menu Items */}
-          <div className="grid grid-cols-2 gap-x-6 gap-y-1 max-[880px]:grid-cols-1">
-            {/* First Column */}
-            <div className="space-y-1">
-              {mainLinks.map((link, index) => {
-                const isActive = location.pathname === link.href;
-                return (
-                  <Link
-                    key={index}
-                    to={link.href}
-                    className={`flex items-center gap-3 p-2.5 rounded-lg transition-all group ${
-                      isActive ? "bg-[#F6F0FF]" : "hover:bg-[#F6F0FF]"
+        <div className="grid grid-cols-[200px_280px] gap-6 max-[880px]:grid-cols-1">
+          {/* Left: Single Column Menu Items */}
+          <div className="space-y-1 max-[880px]:grid-cols-1">
+            {mainLinks.map((link, index) => {
+              const isActive = location.pathname === link.href;
+              return (
+                <Link
+                  key={index}
+                  to={link.href}
+                  className={`flex items-center gap-3 p-2.5 rounded-lg transition-all group ${
+                    isActive ? "bg-[#F6F0FF]" : "hover:bg-[#F6F0FF]"
+                  }`}
+                  role="menuitem"
+                  tabIndex={0}
+                >
+                  <link.icon
+                    className={`w-[18px] h-[18px] transition-colors flex-shrink-0 ${
+                      isActive
+                        ? "text-[#2F80ED]"
+                        : "text-gray-400 group-hover:text-purple-600"
                     }`}
-                    role="menuitem"
-                    tabIndex={0}
+                    strokeWidth={1.5}
+                  />
+                  <span
+                    className={`text-[14px] transition-colors ${
+                      isActive
+                        ? "text-[#2F80ED] font-semibold"
+                        : "text-[#1A1A1A] group-hover:text-purple-600"
+                    }`}
+                    style={{ fontFamily: "Inter, sans-serif" }}
                   >
-                    <link.icon
-                      className={`w-[18px] h-[18px] transition-colors flex-shrink-0 ${
-                        isActive
-                          ? "text-[#2F80ED]"
-                          : "text-gray-400 group-hover:text-purple-600"
-                      }`}
-                      strokeWidth={1.5}
-                    />
-                    <span
-                      className={`text-[14px] transition-colors ${
-                        isActive
-                          ? "text-[#2F80ED] font-semibold"
-                          : "text-[#1A1A1A] group-hover:text-purple-600"
-                      }`}
-                      style={{ fontFamily: "Inter, sans-serif" }}
-                    >
-                      {link.label}
-                    </span>
-                  </Link>
-                );
-              })}
-            </div>
-
-            {/* Second Column: split industryLinks into two columns (first 6, last 5) */}
-            <div className="space-y-1">
-              {/* (Removed embedded industry links; Industries now top-level) */}
-            </div>
+                    {link.label}
+                  </span>
+                </Link>
+              );
+            })}
           </div>
 
           {/* Right: Featured Card */}
@@ -1275,7 +1304,7 @@ function TemplatesDropdown({
   onClose,
   onEnter,
 }: {
-  buttonRef: React.RefObject<HTMLDivElement>;
+  buttonRef: React.RefObject<HTMLDivElement | null>;
   onClose: () => void;
   onEnter: () => void;
 }) {
@@ -1492,7 +1521,7 @@ function ResourcesDropdown({
   onClose,
   onEnter,
 }: {
-  buttonRef: React.RefObject<HTMLDivElement>;
+  buttonRef: React.RefObject<HTMLDivElement | null>;
   onClose: () => void;
   onEnter: () => void;
 }) {
@@ -1761,7 +1790,7 @@ function AnchorDropdown({
   className = "",
   ariaLabel,
 }: {
-  buttonRef: React.RefObject<HTMLElement>;
+  buttonRef: React.RefObject<HTMLElement | null>;
   width?: string;
   children: React.ReactNode;
   onMouseEnter?: () => void;
@@ -1774,17 +1803,16 @@ function AnchorDropdown({
   const [pos, setPos] = useState({ top: 0, left: 0 });
 
   useLayoutEffect(() => {
-    function update() {
+  function update() {
       const btn = buttonRef?.current?.getBoundingClientRect();
       const dd = dropdownRef?.current?.getBoundingClientRect();
       if (!btn || !dd) return;
-      const scrollX = window.scrollX || window.pageXOffset || 0;
-      const scrollY = window.scrollY || window.pageYOffset || 0;
-      // center on trigger by default
-      let left = btn.left + btn.width / 2 + scrollX - dd.width / 2;
+      // center on trigger by default — getBoundingClientRect() is already
+      // viewport-relative, which is what position:fixed needs, so don't add scrollX/scrollY
+      let left = btn.left + btn.width / 2 - dd.width / 2;
       const padding = 12;
       left = Math.max(padding, Math.min(left, window.innerWidth - dd.width - padding));
-      const top = btn.bottom + scrollY - 6; // small overlap to avoid gap
+      const top = btn.bottom - 6; // small overlap to avoid gap
       setPos({ left, top });
     }
 

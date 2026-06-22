@@ -1,5 +1,6 @@
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router';
 import { Toaster } from './components/ui/sonner';
+import ChatbotWidget from './components/ChatbotWidget';
 import HomePage from './pages/HomePage';
 import ProductPage from './pages/ProductPage';
 import TemplatesPage from './pages/TemplatesPage';
@@ -56,6 +57,7 @@ export default function App() {
   return (
     <Router>
       <Toaster />
+      <ChatbotWidget />
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/product" element={<ProductPage />} />
