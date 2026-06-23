@@ -592,7 +592,7 @@ export default function BookingSchedulingPage() {
           <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-6">
             {[
               { icon: Heart, label: 'Clinics & Healthcare', color: 'red' },
-              { icon: Scissors, label: 'Salons & Beauty Studios', color: 'pink' },
+              { icon: Scissors, label: 'Education & Coaching', color: 'pink' },
               { icon: GraduationCap, label: 'Coaching & Training', color: 'blue' },
               { icon: Wrench, label: 'Repair & Home Services', color: 'orange' },
               { icon: Store, label: 'Local Businesses', color: 'green' }

@@ -99,12 +99,12 @@ Small and medium businesses face critical challenges in customer engagement and 
 ### **Step 1: Sign Up & Onboarding** (2 minutes)
 - User clicks "Start Free" → Redirects to `app.smbflow.ai/business/auth/signin`
 - Creates account with email/password
-- Selects business type (restaurant, salon, healthcare, e-commerce, etc.)
+- Selects business type (real estate, education & coaching, healthcare, e-commerce, etc.)
 - Brief tutorial on platform capabilities
 
 ### **Step 2: Choose Template or Build from Scratch** (3 minutes)
 - Browse pre-built templates for common use cases
-- Select template (e.g., "Restaurant Booking Agent" or "Customer Support Agent")
+- Select template (e.g., "Real Estate Booking Agent" or "Customer Support Agent")
 - Preview template logic and conversation flow
 
 ### **Step 3: Customize Agent in Visual Builder** (10-15 minutes)

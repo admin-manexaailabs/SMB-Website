@@ -1071,8 +1071,8 @@ function TestChatWindow() {
 
   const channels = [
     {
-      name: "WhatsApp",
-      title: "Salon AI Agent",
+    name: "WhatsApp",
+    title: "Education & Coaching AI Agent",
       icon: MessageCircle,
       type: "whatsapp",
       messages: [
@@ -1081,7 +1081,8 @@ function TestChatWindow() {
         { from: "user", text: "Haircut" },
         { from: "agent", text: "Available slots: 2 PM, 4 PM. Please confirm." },
         { from: "user", text: "2 PM please" },
-        { from: "agent", text: "✅ Booked! Your haircut is confirmed for tomorrow at 2 PM." },
+          { from: "agent", text: "✅ Booked! Your haircut is confirmed for tomorrow at 2 PM." },
+          { from: "agent", text: "If you have any questions, feel free to ask!" },
       ],
     },
     {
@@ -1210,7 +1211,7 @@ function WhatsAppChat({
         </div>
         <div className="flex items-center gap-2 flex-1">
           <div>
-            <div className="text-white text-sm">{channel.title || "Salon AI Agent"}</div>
+            <div className="text-white text-sm">{channel.title || "Education & Coaching AI Agent"}</div>
             <div className="text-xs text-gray-500">Online</div>
           </div>
           <span className="px-2 py-0.5 bg-gradient-to-r from-green-500 to-emerald-500 text-white text-[10px] rounded-full">
@@ -1367,10 +1368,10 @@ function EmailChat({
               </div>
               <div>
                 <div className="text-sm text-gray-900">
-                  Salon Marketing
+                  Education Marketing
                 </div>
                 <div className="text-xs text-gray-500">
-                  offers@salon.com
+                  offers@education.com
                 </div>
               </div>
             </div>
@@ -1870,60 +1871,60 @@ function TemplatesSection() {
 
   const templates = [
     {
-      icon: Target,
-      title: "Restaurant Order Agent",
-      description: "Order automation for cafés & restaurants",
+      icon: Building2,
+      title: "Real Estate Agent",
+      description: "Property listings, lead qualification, and viewings",
+      color: "bg-amber-500",
+      iconBg: "from-amber-400 to-amber-600",
+    },
+    {
+      icon: GraduationCap,
+      title: "Education & Coaching Agent",
+      description: "Course bookings, trial signups, and learner support",
+      color: "bg-violet-500",
+      iconBg: "from-violet-400 to-violet-600",
+    },
+    {
+      icon: Car,
+      title: "Automotive Agent",
+      description: "Service bookings, test drives, and lead capture",
+      color: "bg-sky-500",
+      iconBg: "from-sky-400 to-sky-600",
+    },
+    {
+      icon: Scale,
+      title: "Legal Services Agent",
+      description: "Client intake, document requests, and consultations",
+      color: "bg-rose-500",
+      iconBg: "from-rose-400 to-rose-600",
+    },
+    {
+      icon: TrendingUp,
+      title: "Financial Services Agent",
+      description: "Loan enquiries, account support, and payments",
+      color: "bg-green-600",
+      iconBg: "from-green-500 to-green-700",
+    },
+    {
+      icon: Wrench,
+      title: "Home Services Agent",
+      description: "Scheduling, estimates, and technician dispatch",
       color: "bg-orange-500",
       iconBg: "from-orange-400 to-orange-600",
     },
     {
-      icon: Palette,
-      title: "Salon Booking Agent",
-      description: "Appointment booking for beauty studios",
-      color: "bg-pink-500",
-      iconBg: "from-pink-400 to-pink-600",
-    },
-    {
-      icon: Headphones,
-      title: "Clinic Scheduling Agent",
-      description: "Patient scheduling for healthcare",
-      color: "bg-green-500",
-      iconBg: "from-green-400 to-green-600",
-    },
-    {
-      icon: Box,
-      title: "E-Commerce Order Tracking Agent",
-      description: "Order tracking and updates",
-      color: "bg-blue-500",
-      iconBg: "from-blue-400 to-blue-600",
-    },
-    {
-      icon: Bell,
-      title: "Patient Reminder Agent",
-      description: "Healthcare appointment reminders",
+      icon: HeartPulse,
+      title: "Healthcare & Clinics Agent",
+      description: "Appointment booking and patient reminders",
       color: "bg-cyan-500",
       iconBg: "from-cyan-400 to-cyan-600",
     },
     {
-      icon: MessageSquare,
-      title: "Follow-Up & Service Reminder Agent",
-      description: "Automated re-engagement campaigns",
+      icon: Dumbbell,
+      title: "Fitness & Gyms Agent",
+      description: "Class bookings, membership support, and reminders",
       color: "bg-purple-500",
       iconBg: "from-purple-400 to-purple-600",
-    },
-    {
-      icon: UserPlus,
-      title: "Lead Capture Agent",
-      description: "Sales lead qualification",
-      color: "bg-indigo-500",
-      iconBg: "from-indigo-400 to-indigo-600",
-    },
-    {
-      icon: Phone,
-      title: "Voice Appointment Agent",
-      description: "Phone call automation",
-      color: "bg-teal-500",
-      iconBg: "from-teal-400 to-teal-600",
     },
   ];
 
@@ -2077,7 +2078,7 @@ function TestimonialsFromDesign3() {
       quote:
         "Reservations and orders run themselves now. Our team focuses only on customers.",
       author: "Rohan P.",
-      role: "Restaurant Manager",
+      role: "Real Estate Manager",
       rating: "97%",
       color: "from-orange-400/20 to-red-400/20",
       border: "border-orange-400/30",
@@ -2161,9 +2162,9 @@ function FAQFromDesign4() {
         "WhatsApp, phone calls, SMS, email, web chat, Instagram DM, and custom API channels.",
     },
     {
-      question: "Is my data safe?",
+      question: "Can agents send scheduled reminders?",
       answer:
-        "Yes — enterprise-grade security, isolated runtime, encryption, and GDPR compliance.",
+        "Yes — agents can schedule reminders and follow-ups across supported channels (SMS, WhatsApp, email, web chat).",
     },
   ];
 

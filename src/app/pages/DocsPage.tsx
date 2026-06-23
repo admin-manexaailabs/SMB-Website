@@ -188,7 +188,7 @@ export default function DocsPage() {
           <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
             {[
               {
-                title: 'Building Your First Restaurant Booking Agent',
+                title: 'Building Your First Real Estate Booking Agent',
                 time: '10 min read',
                 level: 'Beginner'
               },

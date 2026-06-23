@@ -29,8 +29,8 @@ export default function CaseStudyDetailPage() {
 
   // Case study data
   const caseStudyData: { [key: string]: any } = {
-    'urban-bites-restaurant': {
-      industry: 'Restaurants',
+    'urban-bites-real-estate': {
+      industry: 'Real Estate',
       businessName: 'Urban Bites',
       businessSize: '2 locations, 18 staff',
       color: '#F2994A',
@@ -110,7 +110,7 @@ export default function CaseStudyDetailPage() {
         },
         { 
           feature: 'Templates', 
-          reason: 'Started with restaurant booking template, customized in 2 hours',
+          reason: 'Started with real estate booking template, customized in 2 hours',
           icon: Calendar
         },
         { 
@@ -120,12 +120,12 @@ export default function CaseStudyDetailPage() {
         }
       ],
 
-      templateUsed: 'Restaurant Reservation Agent'
+      templateUsed: 'Real Estate Reservation Agent'
     },
 
-    'luxe-salon-bookings': {
-      industry: 'Salons & Spas',
-      businessName: 'Luxe Salon',
+    'luxe-education-bookings': {
+      industry: 'Education & Coaching',
+      businessName: 'Luxe Coaching',
       businessSize: '1 location, 8 staff',
       color: '#9B51E0',
       
@@ -209,12 +209,12 @@ export default function CaseStudyDetailPage() {
         },
         { 
           feature: 'Templates', 
-          reason: 'Used salon template with pre-built reminder sequences',
+          reason: 'Used education template with pre-built reminder sequences',
           icon: Workflow
         }
       ],
 
-      templateUsed: 'Salon Booking & Reminders'
+      templateUsed: 'Education & Coaching Booking & Reminders'
     },
 
     'city-health-clinic': {
@@ -500,7 +500,7 @@ export default function CaseStudyDetailPage() {
     },
 
     'spice-kitchen-orders': {
-      industry: 'Restaurants',
+      industry: 'Real Estate',
       businessName: 'Spice Kitchen',
       businessSize: '1 location, 15 staff',
       color: '#F2994A',
@@ -590,7 +590,7 @@ export default function CaseStudyDetailPage() {
         }
       ],
 
-      templateUsed: 'Restaurant Order Management'
+      templateUsed: 'Real Estate Order Management'
     },
 
     'wellness-center-multi': {
@@ -876,7 +876,7 @@ export default function CaseStudyDetailPage() {
     }
   };
 
-  const caseStudy = caseStudyData[slug || ''] || caseStudyData['urban-bites-restaurant'];
+  const caseStudy = caseStudyData[slug || ''] || caseStudyData['urban-bites-real-estate'];
 
   const getChannelIcon = (channel: string) => {
     switch(channel) {

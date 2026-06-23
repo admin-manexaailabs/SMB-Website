@@ -104,7 +104,7 @@ export default function CinematicVoiceAgent() {
 const conversationPairs = [
   {
     human: { text: "Hello?", emoji: "📞" },
-    ai: { text: "Hi! This is the AI assistant from Urban Salon. We're offering 20% off hair and spa services this weekend. Would you like to book an appointment now?", emoji: "💇‍♀️✨" },
+    ai: { text: "Hi! This is the AI assistant from Education Center. We're offering 20% off classes and workshops this weekend. Would you like to enroll now?", emoji: "🎓✨" },
   },
   {
     human: { text: "Maybe. What slots are available?", emoji: "🤔" },

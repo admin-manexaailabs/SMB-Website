@@ -29,8 +29,8 @@ export default function CaseStudiesPage() {
 
   const industries = [
     { name: 'All', icon: Briefcase, color: '#6B7280' },
-    { name: 'Restaurants', icon: UtensilsCrossed, color: '#F2994A' },
-    { name: 'Salons & Spas', icon: Sparkles, color: '#9B51E0' },
+    { name: 'Real Estate', icon: UtensilsCrossed, color: '#F2994A' },
+    { name: 'Education & Coaching', icon: Sparkles, color: '#9B51E0' },
     { name: 'Healthcare', icon: Stethoscope, color: '#2F80ED' },
     { name: 'E-commerce', icon: ShoppingBag, color: '#EB5757' },
     { name: 'Services & SMBs', icon: Briefcase, color: '#10B981' }
@@ -38,14 +38,14 @@ export default function CaseStudiesPage() {
 
   const caseStudies = [
     {
-      industry: 'Restaurants',
+      industry: 'Real Estate',
       businessName: 'Urban Bites',
       agentType: 'Booking Agent',
       resultLine: '90% of reservations automated in 7 days',
       channels: ['WhatsApp', 'Web', 'Phone'],
       agents: ['Booking', 'Support'],
       scale: '450 msgs/day',
-      slug: 'urban-bites-restaurant',
+      slug: 'urban-bites-real-estate',
       color: '#F2994A',
       metrics: {
         timeSaved: '18 hours/week',
@@ -54,14 +54,14 @@ export default function CaseStudiesPage() {
       }
     },
     {
-      industry: 'Salons & Spas',
-      businessName: 'Luxe Salon',
+      industry: 'Education & Coaching',
+      businessName: 'Luxe Coaching',
       agentType: 'Booking & Support',
       resultLine: 'Zero missed appointments, 95% booking rate',
       channels: ['SMS', 'Web', 'Instagram'],
       agents: ['Booking', 'Reminder', 'Support'],
       scale: '280 msgs/day',
-      slug: 'luxe-salon-bookings',
+      slug: 'luxe-education-bookings',
       color: '#9B51E0',
       metrics: {
         timeSaved: '22 hours/week',
@@ -118,7 +118,7 @@ export default function CaseStudiesPage() {
       }
     },
     {
-      industry: 'Restaurants',
+      industry: 'Real Estate',
       businessName: 'Spice Kitchen',
       agentType: 'Order & Delivery',
       resultLine: 'Handled 2× order volume with same staff',

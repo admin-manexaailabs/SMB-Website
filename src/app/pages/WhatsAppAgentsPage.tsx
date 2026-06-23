@@ -423,13 +423,13 @@ export default function WhatsAppAgentsPage() {
             {[
               {
                 icon: Scissors,
-                title: 'Salons & Spas',
+                title: 'Education & Coaching',
                 description: 'Handle bookings, send reminders, and answer styling questions',
                 benefits: ['70% fewer no-shows', 'Easy rescheduling', 'Automated reminders']
               },
               {
                 icon: Utensils,
-                title: 'Restaurants',
+                title: 'Real Estate',
                 description: 'Take reservations, share specials, and send order updates',
                 benefits: ['Faster table turnover', 'Real-time order status', 'Menu recommendations']
               },

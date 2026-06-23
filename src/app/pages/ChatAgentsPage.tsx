@@ -569,7 +569,7 @@ export default function ChatAgentsPage() {
             {[
               {
                 name: 'Sarah Martinez',
-                role: 'Owner, Bella Salon & Spa',
+                role: 'Owner, Bella Coaching Center',
                 content: 'Our chat agent handles 90% of booking requests automatically. We went from spending 3 hours a day on messages to just checking confirmations. Game changer!',
                 rating: 5
               },

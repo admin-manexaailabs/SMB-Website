@@ -29,7 +29,7 @@ export default function Footer() {
       { label: "Support Agents", href: "/agents/support" },
       { label: "Custom Agents", href: "/agents/custom" },
     ],
-    Solutions: [
+      Solutions: [
       {
         label: "Booking & Scheduling",
         href: "/solutions/booking",
@@ -37,8 +37,8 @@ export default function Footer() {
       { label: "Order Management", href: "/solutions/order" },
       { label: "Customer Support", href: "/solutions/support" },
       { label: "Lead Capture", href: "/solutions/leads" },
-      { label: "Restaurants", href: "/solutions/restaurants" },
-      { label: "Salons & Spas", href: "/solutions/salons" },
+      { label: "Real Estate", href: "/solutions/real-estate" },
+      { label: "Education & Coaching", href: "/solutions/education" },
       { label: "Healthcare", href: "/solutions/healthcare" },
       { label: "E-Commerce", href: "/solutions/ecommerce" },
     ],

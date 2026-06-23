@@ -611,7 +611,7 @@ export default function OrderManagementPage() {
           <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-6">
             {[
               { icon: ShoppingCart, label: 'E-commerce stores', color: 'blue' },
-              { icon: Utensils, label: 'Restaurants & food delivery', color: 'orange' },
+              { icon: Utensils, label: 'Real Estate & property management', color: 'orange' },
               { icon: ShoppingBag, label: 'Retail & D2C brands', color: 'purple' },
               { icon: Package, label: 'Service providers with orders', color: 'green' },
               { icon: Store, label: 'Local sellers', color: 'red' }

@@ -549,8 +549,8 @@ export default function SupportAgentPage() {
               },
               {
                 icon: ShoppingCart,
-                title: 'Restaurants',
-                description: 'Reservations, menu questions, delivery'
+                title: 'Real Estate',
+                description: 'Property inquiries, viewing scheduling, follow-ups'
               },
               {
                 icon: Settings,

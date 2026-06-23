@@ -517,7 +517,7 @@ export default function VoiceAgentsPage() {
               },
               {
                 icon: Utensils,
-                title: 'Restaurants',
+                title: 'Real Estate',
                 description: 'Take reservations, answer menu questions, and confirm bookings.',
                 color: 'from-blue-400 to-blue-600',
                 bgColor: 'from-blue-50 to-blue-100'

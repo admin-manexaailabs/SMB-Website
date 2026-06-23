@@ -246,11 +246,11 @@ Browse ready-to-use industry templates:
 
 ### Template Library (8+ Templates)
 
-1. **Restaurant Order Agent**
-   - Order automation for cafés & restaurants
+1. **Real Estate Order Agent**
+   - Inquiry automation for property listings and viewing scheduling
 
-2. **Salon Booking Agent**
-   - Appointment booking for beauty studios
+2. **Education & Coaching Booking Agent**
+   - Appointment and class scheduling for coaching and training centers
 
 3. **Clinic Scheduling Agent**
    - Patient scheduling for healthcare
@@ -443,11 +443,11 @@ All conversations appear in a unified inbox. Review agent performance, see where
 
 ## Core SMB Use Cases
 
-### 1. Restaurant Order & Reservation Automation
-**Problem**: Phone lines jammed during peak hours, missed reservations, manual order tracking  
-**Solution**: AI agent handles table bookings, takes orders, answers menu questions, sends order status updates  
+### 1. Real Estate Inquiry & Viewing Automation
+**Problem**: High manual coordination for property viewings and inquiries during peak times  
+**Solution**: AI agent handles viewing requests, schedules appointments, answers property questions, and sends confirmations  
 **Channels**: WhatsApp, phone calls, Instagram DM  
-**Outcome**: 70% reduction in missed reservations, 50% less time on phone
+**Outcome**: Faster scheduling and fewer missed viewings
 
 ### 2. Healthcare Appointment Scheduling
 **Problem**: Patients call during business hours, staff overwhelmed with scheduling/rescheduling  
@@ -455,11 +455,11 @@ All conversations appear in a unified inbox. Review agent performance, see where
 **Channels**: SMS, phone calls, web chat  
 **Outcome**: 24/7 scheduling, 60% fewer no-shows, staff focused on patient care
 
-### 3. Salon & Spa Booking + Follow-Ups
-**Problem**: Manual booking process, low rebooking rate, no automated reminders  
-**Solution**: AI agent schedules appointments, suggests services, sends rebooking campaigns  
+### 3. Education & Coaching Booking + Follow-Ups
+**Problem**: Manual enrollment and class scheduling, low re-enrollment rates, no automated reminders  
+**Solution**: AI agent manages enrollment inquiries, schedules classes, sends reminders and re-engagement campaigns  
 **Channels**: WhatsApp, SMS, Instagram DM  
-**Outcome**: 35% increase in repeat bookings, 90% reminder delivery rate
+**Outcome**: Higher enrollment and better class attendance
 
 ### 4. E-commerce Order Tracking & Support
 **Problem**: "Where is my order?" queries flood support team, manual COD confirmation  
@@ -480,7 +480,7 @@ All conversations appear in a unified inbox. Review agent performance, see where
 ### Primary Personas
 
 **1. Small Business Owner (Non-Technical)**
-- Runs a restaurant, salon, clinic, or local service business
+- Runs a real estate agency, education/coaching center, clinic, or local service business
 - 5-50 employees
 - Handles 100-1000 customer conversations per week
 - Needs automation but lacks technical resources
