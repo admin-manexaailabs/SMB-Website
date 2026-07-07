@@ -1,8 +1,9 @@
+import { motion } from 'motion/react';
 import { Button } from '../components/ui/button';
 import NavigationWithDropdowns from '../components/NavigationWithDropdowns';
 import Footer from '../components/Footer';
 import { useState } from 'react';
-import { Phone, ArrowRight, Play, Mic, Volume2, CheckCircle, Radio, Users, Headphones, Clock, Shield, Zap } from 'lucide-react';
+import { Phone, ArrowRight, Play, Mic, Volume2, CheckCircle, Radio, Users, Headphones, Clock, Shield, Zap, Settings, PhoneCall, Route, Send, UserPlus, Building2, Utensils, Dumbbell, ChevronDown, Calendar } from 'lucide-react';
 import { ImageWithFallback } from '../components/figma/ImageWithFallback';
 
 export default function VoiceAgentsPage() {

@@ -1317,26 +1317,32 @@ function TemplatesDropdown({
     {
       icon: Calendar,
       label: "Booking Agent",
+      href: "/solutions/booking",
     },
     {
       icon: ShoppingCart,
       label: "Order Assistant",
+      href: "/solutions/order",
     },
     {
       icon: Users,
       label: "Support Agent",
+      href: "/solutions/support",
     },
     {
       icon: RefreshCw,
       label: "Follow-Up Agent",
+      href: "/solutions/leads",
     },
     {
       icon: Mail,
       label: "Email Agent",
+      href: "/agents/email",
     },
     {
       icon: PhoneCall,
       label: "Voice Agent",
+      href: "/agents/voice",
     },
   ];
 
@@ -1344,18 +1350,22 @@ function TemplatesDropdown({
     {
       icon: Zap,
       label: "Lead Capture",
+      href: "/solutions/leads",
     },
     {
       icon: MessageSquare,
       label: "Chat Agent",
+      href: "/agents/chat",
     },
     {
       icon: BarChart3,
       label: "Analytics",
+      href: "/product/analytics",
     },
     {
       icon: Workflow,
       label: "Custom Workflows",
+      href: "/product/flow-builder",
     },
   ];
 
@@ -1391,9 +1401,10 @@ function TemplatesDropdown({
             <div className="space-y-1">
               {mainLinks.map((link, index) => {
                 return (
-                  <div
+                  <Link
                     key={index}
-                    className="flex items-center gap-3 p-2.5 rounded-lg cursor-default"
+                    to={link.href}
+                    className="flex items-center gap-3 p-2.5 rounded-lg transition-all group hover:bg-[#F6F0FF]"
                   >
                     <link.icon
                       className="w-[18px] h-[18px] text-gray-400 flex-shrink-0"
@@ -1405,7 +1416,7 @@ function TemplatesDropdown({
                     >
                       {link.label}
                     </span>
-                  </div>
+                  </Link>
                 );
               })}
             </div>
@@ -1414,9 +1425,10 @@ function TemplatesDropdown({
             <div className="space-y-1">
               {secondaryLinks.map((link, index) => {
                 return (
-                  <div
+                  <Link
                     key={index}
-                    className="flex items-center gap-3 p-2.5 rounded-lg cursor-default"
+                    to={link.href}
+                    className="flex items-center gap-3 p-2.5 rounded-lg transition-all group hover:bg-[#F6F0FF]"
                   >
                     <link.icon
                       className="w-[18px] h-[18px] text-gray-400 flex-shrink-0"
@@ -1428,7 +1440,7 @@ function TemplatesDropdown({
                     >
                       {link.label}
                     </span>
-                  </div>
+                  </Link>
                 );
               })}
               {/* Industry template shortcuts */}

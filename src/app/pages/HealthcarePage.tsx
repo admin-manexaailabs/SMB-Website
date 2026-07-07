@@ -1,5 +1,5 @@
-import { motion } from 'react';
-import { HeartPulse, MessageCircle, Phone, Mail, Globe, MessageSquare, CheckCircle, TrendingUp, Clock, Zap, Target, BarChart3, ArrowRight, AlertCircle, Calendar, Stethoscope } from 'lucide-react';
+import { motion } from 'motion/react';
+import { Link, Shield, Lock, FileText, HeartPulse, MessageCircle, Phone, Mail, Globe, MessageSquare, CheckCircle, TrendingUp, Clock, Zap, Target, BarChart3, ArrowRight, AlertCircle, Calendar, Stethoscope } from 'lucide-react';
 import { Button } from '../components/ui/button';
 import NavigationWithDropdowns from '../components/NavigationWithDropdowns';
 import Footer from '../components/Footer';

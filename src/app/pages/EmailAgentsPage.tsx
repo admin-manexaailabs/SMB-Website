@@ -1,8 +1,9 @@
+import { motion } from 'motion/react';
 import { Button } from '../components/ui/button';
 import NavigationWithDropdowns from '../components/NavigationWithDropdowns';
 import Footer from '../components/Footer';
 import { useState } from 'react';
-import { Mail, ArrowRight, Play } from 'lucide-react';
+import { Mail, ArrowRight, Play, Zap, Send, CheckCircle, FolderKanban, Inbox, Clock, AlertCircle, Shield, ZapOff, Database, UserPlus, Users, Headphones, Mic, Volume2, PhoneCall, Route, Settings, Building2, Utensils, Dumbbell, ChevronDown, Calendar, ShoppingBag } from 'lucide-react';
 
 export default function EmailAgentsPage() {
   const [openFaq, setOpenFaq] = useState<number | null>(null);

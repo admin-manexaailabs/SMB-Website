@@ -1,4 +1,4 @@
-import { motion } from 'react';
+import { motion } from 'motion/react';
 import { Wrench, MessageCircle, Phone, Mail, Globe, MessageSquare, CheckCircle, TrendingUp, Clock, Zap, Target, BarChart3, ArrowRight, AlertCircle, Calendar, Hammer } from 'lucide-react';
 import { Button } from '../components/ui/button';
 import NavigationWithDropdowns from '../components/NavigationWithDropdowns';

@@ -1,6 +1,7 @@
 import { motion, AnimatePresence } from 'motion/react';
 import { Link } from 'react-router';
 import { 
+  GraduationCap,
   MessageSquare,
   Phone,
   Mail,
